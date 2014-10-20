@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8906C02F19F5738F00291F64 /* WPWatson.m in Sources */ = {isa = PBXBuildFile; fileRef = 8906C02E19F5738F00291F64 /* WPWatson.m */; };
+		8906C03219F5739B00291F64 /* WPUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8906C03119F5739B00291F64 /* WPUtils.m */; };
+		8906C03519F573A100291F64 /* WPConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 8906C03419F573A100291F64 /* WPConstants.m */; };
+		8906C03719F573A700291F64 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8906C03619F573A700291F64 /* config.plist */; };
+		8906C03A19F5744E00291F64 /* WPWatsonQuestionResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 8906C03919F5744E00291F64 /* WPWatsonQuestionResponse.m */; };
 		890B6A7619EEE380007E839F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 890B6A7519EEE380007E839F /* main.m */; };
 		890B6A7919EEE380007E839F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 890B6A7819EEE380007E839F /* AppDelegate.m */; };
 		890B6A7C19EEE380007E839F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 890B6A7B19EEE380007E839F /* ViewController.m */; };
@@ -27,6 +32,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8906C02D19F5738F00291F64 /* WPWatson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPWatson.h; sourceTree = "<group>"; };
+		8906C02E19F5738F00291F64 /* WPWatson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPWatson.m; sourceTree = "<group>"; };
+		8906C03019F5739B00291F64 /* WPUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPUtils.h; sourceTree = "<group>"; };
+		8906C03119F5739B00291F64 /* WPUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPUtils.m; sourceTree = "<group>"; };
+		8906C03319F573A100291F64 /* WPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPConstants.h; sourceTree = "<group>"; };
+		8906C03419F573A100291F64 /* WPConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPConstants.m; sourceTree = "<group>"; };
+		8906C03619F573A700291F64 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
+		8906C03819F5744E00291F64 /* WPWatsonQuestionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPWatsonQuestionResponse.h; sourceTree = "<group>"; };
+		8906C03919F5744E00291F64 /* WPWatsonQuestionResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPWatsonQuestionResponse.m; sourceTree = "<group>"; };
 		890B6A7019EEE380007E839F /* WatsonQuery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatsonQuery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		890B6A7419EEE380007E839F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		890B6A7519EEE380007E839F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -85,6 +99,15 @@
 				890B6A7819EEE380007E839F /* AppDelegate.m */,
 				890B6A7A19EEE380007E839F /* ViewController.h */,
 				890B6A7B19EEE380007E839F /* ViewController.m */,
+				8906C02D19F5738F00291F64 /* WPWatson.h */,
+				8906C02E19F5738F00291F64 /* WPWatson.m */,
+				8906C03019F5739B00291F64 /* WPUtils.h */,
+				8906C03119F5739B00291F64 /* WPUtils.m */,
+				8906C03319F573A100291F64 /* WPConstants.h */,
+				8906C03819F5744E00291F64 /* WPWatsonQuestionResponse.h */,
+				8906C03919F5744E00291F64 /* WPWatsonQuestionResponse.m */,
+				8906C03419F573A100291F64 /* WPConstants.m */,
+				8906C03619F573A700291F64 /* config.plist */,
 				890B6A7D19EEE380007E839F /* Main.storyboard */,
 				890B6A8019EEE380007E839F /* Images.xcassets */,
 				890B6A8219EEE380007E839F /* LaunchScreen.xib */,
@@ -199,6 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8906C03719F573A700291F64 /* config.plist in Resources */,
 				890B6A7F19EEE380007E839F /* Main.storyboard in Resources */,
 				890B6A8419EEE380007E839F /* LaunchScreen.xib in Resources */,
 				890B6A8119EEE380007E839F /* Images.xcassets in Resources */,
@@ -219,9 +243,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8906C02F19F5738F00291F64 /* WPWatson.m in Sources */,
 				890B6A7C19EEE380007E839F /* ViewController.m in Sources */,
+				8906C03519F573A100291F64 /* WPConstants.m in Sources */,
+				8906C03219F5739B00291F64 /* WPUtils.m in Sources */,
 				890B6A7919EEE380007E839F /* AppDelegate.m in Sources */,
 				890B6A7619EEE380007E839F /* main.m in Sources */,
+				8906C03A19F5744E00291F64 /* WPWatsonQuestionResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +440,7 @@
 				890B6A9519EEE380007E839F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		890B6A9619EEE380007E839F /* Build configuration list for PBXNativeTarget "WatsonQueryTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +449,7 @@
 				890B6A9819EEE380007E839F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
