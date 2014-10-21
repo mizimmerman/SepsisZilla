@@ -11,65 +11,60 @@
 
 @interface ViewController ()
 
+@property (nonatomic) UITextView *responseTextView;
+@property (nonatomic) UIButton *askButton;
+@property (nonatomic) UITextView *questionField;
+
 @end
 
 @implementation ViewController
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.title = @"Main";
+    }
+    return self;
+}
+
+- (void)loadView {
+    [super loadView];
+    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.responseTextView = [UITextView new];
+    [self.responseTextView setFrame:CGRectMake(10, 368, 300, 100)];
+    [self.responseTextView setTextColor:[UIColor blackColor]];
+    [self.responseTextView setText:@"uhhhhhhhhh"];
+    [self.view addSubview:self.responseTextView];
+    
+    self.questionField = [UITextView new];
+    [self.questionField setFrame:CGRectMake(10, 20, 220, 40)];
+//    [self.questionField setPlaceholder:@"Enter your Q"];
+    [self.view addSubview:self.questionField];
+
+    self.askButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.askButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [self.askButton setFrame:CGRectMake(220, 20, 100, 40)];
+    [self.askButton setTitle:@"Ask Watson" forState:UIControlStateNormal];
+    [self.askButton addTarget:self action:@selector(tappedAsk) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.askButton];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    [[WPWatson sharedManager] askQuestion:@"What is sepsis?" completionHandler:^(NSError *connectionError) {
-        //
-    }];
-    
-    
-//    NSDictionary *question = @{@"question": @[
-//                                       @{@"questionText": @"What is sepsis?"},
-//                                       @{@"items":@4}]};
-//    NSURL *url = [NSURL URLWithString:@"https://watson-wdc01.ihost.com/instance/509/deepqa/v1/question"]; //instance #: 509
-//    
-//    NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
-//    sessionConfiguration.HTTPAdditionalHeaders = @{@"api-key": @"API_KEY"};
-//    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
-//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-//    
-//    NSError *error;
-//    request.HTTPBody = [NSJSONSerialization dataWithJSONObject:question options:NSJSONWritingPrettyPrinted error:&error];
-//    request.HTTPMethod = @"POST";
-//    NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { }];
-//    [postDataTask resume];
-    
-    
-    
 }
-                                          
-//- (NSData *)httpBodyForDictionary:(NSDictionary *)dict
-//{
-//    NSError *error;
-//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:question
-//                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
-//                                                         error:&error];
-//    if (!jsonData) {
-//        NSLog(@"Got an error: %@", error);
-//    } else {
-//        NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-//    }
-//}
-//
-//+(NSString*) getBase64AuthHeaderWithUsername:(NSString*) user andPassword:(NSString*) password
-//{
-//    NSString* base64Login = [NSString stringWithFormat:@"%@:%@", user, password];
-//    
-//    NSData *plainDataLogin = [base64Login dataUsingEncoding:NSUTF8StringEncoding];
-//    NSString *base64StringLogin = [NSString stringWithFormat:@"Basic %@", [plainDataLogin base64EncodedStringWithOptions:kNilOptions]];
-//    
-//    return base64StringLogin;
-//}
-//
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)tappedAsk {
+    [self askQuestionWithText:self.questionField.text];
+    [self.questionField resignFirstResponder];
+}
+
+-(void)askQuestionWithText:(NSString *)text {
+    __block UITextView *weakResponseTextView = self.responseTextView;
+    [[WPWatson sharedManager] askQuestion:text completionHandler:^(NSString *response, NSError *connectionError) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            weakResponseTextView.text = response;
+        });
+    }];
 }
 
 @end
