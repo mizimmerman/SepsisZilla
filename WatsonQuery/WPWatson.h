@@ -1,6 +1,5 @@
 // WPWatson.h
 //
-// Copyright (c) 2014 Carlos Andreu
 //
 
 #import <Foundation/Foundation.h>

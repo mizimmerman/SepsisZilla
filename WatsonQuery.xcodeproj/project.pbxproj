@@ -20,6 +20,8 @@
 		890B6A8119EEE380007E839F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 890B6A8019EEE380007E839F /* Images.xcassets */; };
 		890B6A8419EEE380007E839F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 890B6A8219EEE380007E839F /* LaunchScreen.xib */; };
 		890B6A9019EEE380007E839F /* WatsonQueryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 890B6A8F19EEE380007E839F /* WatsonQueryTests.m */; };
+		8925888A19F9F9D200AEA7BE /* UIColor+SPSColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925888919F9F9D200AEA7BE /* UIColor+SPSColors.m */; };
+		893A799819FC8CE40070D46E /* UPPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893A799719FC8CE40070D46E /* UPPlatform.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,9 @@
 		890B6A8919EEE380007E839F /* WatsonQueryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WatsonQueryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		890B6A8E19EEE380007E839F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		890B6A8F19EEE380007E839F /* WatsonQueryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WatsonQueryTests.m; sourceTree = "<group>"; };
+		8925888819F9F9D200AEA7BE /* UIColor+SPSColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SPSColors.h"; sourceTree = "<group>"; };
+		8925888919F9F9D200AEA7BE /* UIColor+SPSColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SPSColors.m"; sourceTree = "<group>"; };
+		893A799719FC8CE40070D46E /* UPPlatform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UPPlatform.framework; path = UPPlatformSDK/UPPlatform.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				893A799819FC8CE40070D46E /* UPPlatform.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +103,7 @@
 		890B6A6719EEE380007E839F = {
 			isa = PBXGroup;
 			children = (
+				893A799719FC8CE40070D46E /* UPPlatform.framework */,
 				890B6A7219EEE380007E839F /* WatsonQuery */,
 				890B6A8C19EEE380007E839F /* WatsonQueryTests */,
 				890B6A7119EEE380007E839F /* Products */,
@@ -123,6 +130,8 @@
 				890B6A7B19EEE380007E839F /* ViewController.m */,
 				8906C03F19F5D77700291F64 /* GraphViewController.h */,
 				8906C04019F5D77700291F64 /* GraphViewController.m */,
+				8925888819F9F9D200AEA7BE /* UIColor+SPSColors.h */,
+				8925888919F9F9D200AEA7BE /* UIColor+SPSColors.m */,
 				8906C03B19F5807300291F64 /* Watson */,
 				890B6A8019EEE380007E839F /* Images.xcassets */,
 				890B6A8219EEE380007E839F /* LaunchScreen.xib */,
@@ -261,6 +270,7 @@
 				890B6A7C19EEE380007E839F /* ViewController.m in Sources */,
 				8906C03519F573A100291F64 /* WPConstants.m in Sources */,
 				8906C03219F5739B00291F64 /* WPUtils.m in Sources */,
+				8925888A19F9F9D200AEA7BE /* UIColor+SPSColors.m in Sources */,
 				8906C03E19F5833000291F64 /* TabViewController.m in Sources */,
 				8906C04119F5D77700291F64 /* GraphViewController.m in Sources */,
 				890B6A7919EEE380007E839F /* AppDelegate.m in Sources */,
@@ -379,8 +389,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/UPPlatformSDK",
+				);
 				INFOPLIST_FILE = WatsonQuery/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -389,8 +404,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/UPPlatformSDK",
+				);
 				INFOPLIST_FILE = WatsonQuery/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

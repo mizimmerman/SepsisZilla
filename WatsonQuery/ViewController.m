@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "WPWatson.h"
+#import "UIColor+SPSColors.h"
 
 @interface ViewController ()
 
@@ -29,8 +30,9 @@
 
 - (void)loadView {
     [super loadView];
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.view.backgroundColor = [UIColor themeColor1];
     self.responseTextView = [UITextView new];
+    self.responseTextView.contentInset = UIEdgeInsetsMake(5, 10, 5, 10);
     [self.responseTextView setFrame:CGRectMake(10, 368, 300, 100)];
     [self.responseTextView setTextColor:[UIColor blackColor]];
     [self.responseTextView setText:@"uhhhhhhhhh"];

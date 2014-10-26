@@ -7,7 +7,7 @@
 
 @implementation WPWatson
 
-+(instancetype) sharedManager {
++ (instancetype)sharedManager {
     static WPWatson *sharedManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -26,7 +26,7 @@
     return self;
 }
 
--(void) askQuestion:(NSString*) question completionHandler:(void (^)(NSString *response, NSError* connectionError)) callback {
+- (void)askQuestion:(NSString*)question completionHandler:(void (^)(NSString *response, NSError* connectionError))callback {
     self.currentQuestion = question;
     NSString *path = [[NSBundle mainBundle] pathForResource:CONFIG_PLIST_FILE_NAME ofType:CONFIG_PLIST_EXTENSION];
     NSDictionary *config = [[NSDictionary alloc] initWithContentsOfFile:path];
@@ -52,7 +52,6 @@
     request.HTTPBody = [NSJSONSerialization dataWithJSONObject:questionStr options:NSJSONWritingPrettyPrinted error:&error];
 //    NSString *s = [NSJSONSerialization JSONObjectWithData:request.HTTPBody options:NSJSONReadingAllowFragments error:&error];
 //    NSLog(@"request: %@", s);
-    
     [NSURLConnection sendAsynchronousRequest:request queue:self.queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         if (error) {
             NSLog(@"Error contacting the server: %@", error);
@@ -69,9 +68,7 @@
 #pragma mark PRIVATE
 
 - (void)_saveWithResponseData:(NSData*) data andQuestion:(NSString*) question {
-    //Extract the useful bits (answers and evidence)
     WPWatsonQuestionResponse* res = [WPUtils buildResponseObjectWithData:data];
-    //Save it so we can reference it in our controller
     [self.responses setObject:res forKey:question];
 }
 
