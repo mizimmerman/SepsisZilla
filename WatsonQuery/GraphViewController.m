@@ -62,17 +62,6 @@
     
 //    NSURL* url = [NSURL URLWithString:@"https://jawbone.com/auth/oauth2/auth?response_type=code&client_id=Xdcjl7E4-F0&redirect_uri=https://spotsis.herokuapp.com/oauthredirect"];
     
-    
-//    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
-//    [request setHTTPMethod: @"GET"];
-//    [request setValue:@"30" forHTTPHeaderField:@"X-SyncTimeout"];
-//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-//    [request setValue:@"no-cache" forHTTPHeaderField:@"Cache-Control"];
-//    NSString* authHeader = [WPUtils getBase64AuthHeaderWithUsername:user andPassword:pass];
-//    [request setValue:authHeader forHTTPHeaderField:@"Authorization"];
-//
-    
-    
 //    NSURLRequest *request = [NSURLRequest requestWithURL:url];
 //    [self.jawboneLoginView loadRequest:request];
 }
