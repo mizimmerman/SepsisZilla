@@ -11,7 +11,7 @@
 @implementation UIColor (SPSColors)
 
 + (UIColor *)themeColor1 {
-    return [UIColor colorWithRed:1 green:0 blue:0 alpha:1];
+    return [UIColor colorWithRed:0.4 green:0.6 blue:0.6 alpha:1];
 }
 
 + (UIColor *)themeColor2 {

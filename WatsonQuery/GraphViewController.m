@@ -26,6 +26,7 @@
     self = [super init];
     if (self) {
         self.title = @"Jawbone";
+        [self.view setBackgroundColor:[UIColor yellowColor]];
         
     }
     return self;
@@ -112,10 +113,9 @@
             i++;
         }
     }];
-    
 }
 
-- (void)showSleep{
+- (void)showSleep {
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
     CGFloat screenHeight = screenRect.size.height;

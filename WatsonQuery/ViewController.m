@@ -15,8 +15,10 @@
 @property (nonatomic) UITextView *responseTextView;
 @property (nonatomic) UIButton *askButton;
 @property (nonatomic) UITextView *questionField;
+@property (nonatomic) UIImageView *watsonLogo;
 
 @end
+
 
 @implementation ViewController
 
@@ -33,22 +35,36 @@
     self.view.backgroundColor = [UIColor themeColor1];
     self.responseTextView = [UITextView new];
     self.responseTextView.contentInset = UIEdgeInsetsMake(5, 10, 5, 10);
-    [self.responseTextView setFrame:CGRectMake(10, 368, 300, 100)];
+    [self.responseTextView setFrame:CGRectMake(10, self.view.frame.size.height/2, self.view.frame.size.width-20, self.view.frame.size.height/2-70)];
     [self.responseTextView setTextColor:[UIColor blackColor]];
-    [self.responseTextView setText:@"uhhhhhhhhh"];
+    [self.responseTextView setText:@""];
+    [self.responseTextView.layer setMasksToBounds:YES];
+    [self.responseTextView.layer setCornerRadius:10];
+    
     [self.view addSubview:self.responseTextView];
     
     self.questionField = [UITextView new];
-    [self.questionField setFrame:CGRectMake(10, 20, 220, 40)];
-//    [self.questionField setPlaceholder:@"Enter your Q"];
+    [self.questionField setFrame:CGRectMake(10, 100, self.view.frame.size.width-20, self.view.frame.size.height/8)];
+    [self.questionField.layer setMasksToBounds:YES];
+    [self.questionField.layer setCornerRadius:10];
+    [self.questionField setFont:[UIFont systemFontOfSize:25]];
     [self.view addSubview:self.questionField];
 
     self.askButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.askButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [self.askButton setFrame:CGRectMake(220, 20, 100, 40)];
+    [self.askButton setFrame:CGRectInset(self.view.frame, 100, 200)];
+    [self.askButton setCenter:CGPointMake(self.view.frame.size.width*3/4+10, 50)];
     [self.askButton setTitle:@"Ask Watson" forState:UIControlStateNormal];
+    [self.askButton setFont:[UIFont systemFontOfSize:20]];
     [self.askButton addTarget:self action:@selector(tappedAsk) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.askButton];
+    
+    self.watsonLogo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Watson-Avatar.jpg"]];
+    [self.watsonLogo setFrame:CGRectMake(self.view.frame.size.width/2-50, self.view.frame.size.height/2-120, 100, 100)];
+    [self.watsonLogo.layer setMasksToBounds:YES];
+    [self.watsonLogo.layer setCornerRadius:10];
+    [self.view addSubview:self.watsonLogo];
+    
 }
 
 - (void)viewDidLoad {

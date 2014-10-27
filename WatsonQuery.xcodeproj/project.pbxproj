@@ -22,6 +22,7 @@
 		890B6A9019EEE380007E839F /* WatsonQueryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 890B6A8F19EEE380007E839F /* WatsonQueryTests.m */; };
 		8925888A19F9F9D200AEA7BE /* UIColor+SPSColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925888919F9F9D200AEA7BE /* UIColor+SPSColors.m */; };
 		893A799819FC8CE40070D46E /* UPPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893A799719FC8CE40070D46E /* UPPlatform.framework */; };
+		893A79E319FDE0630070D46E /* Watson-Avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 893A79E219FDE0630070D46E /* Watson-Avatar.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		8925888819F9F9D200AEA7BE /* UIColor+SPSColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SPSColors.h"; sourceTree = "<group>"; };
 		8925888919F9F9D200AEA7BE /* UIColor+SPSColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SPSColors.m"; sourceTree = "<group>"; };
 		893A799719FC8CE40070D46E /* UPPlatform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UPPlatform.framework; path = UPPlatformSDK/UPPlatform.framework; sourceTree = "<group>"; };
+		893A79E219FDE0630070D46E /* Watson-Avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Watson-Avatar.jpg"; path = "../../../../../../Downloads/Watson-Avatar.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				8925888919F9F9D200AEA7BE /* UIColor+SPSColors.m */,
 				8906C03B19F5807300291F64 /* Watson */,
 				890B6A8019EEE380007E839F /* Images.xcassets */,
+				893A79E219FDE0630070D46E /* Watson-Avatar.jpg */,
 				890B6A8219EEE380007E839F /* LaunchScreen.xib */,
 				890B6A7319EEE380007E839F /* Supporting Files */,
 			);
@@ -215,6 +218,7 @@
 				TargetAttributes = {
 					890B6A6F19EEE380007E839F = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = QAZG2BYMD2;
 					};
 					890B6A8819EEE380007E839F = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -246,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				893A79E319FDE0630070D46E /* Watson-Avatar.jpg in Resources */,
 				8906C03719F573A700291F64 /* config.plist in Resources */,
 				890B6A8419EEE380007E839F /* LaunchScreen.xib in Resources */,
 				890B6A8119EEE380007E839F /* Images.xcassets in Resources */,
@@ -389,6 +394,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UPPlatformSDK",
@@ -397,6 +404,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -404,6 +412,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UPPlatformSDK",
@@ -412,6 +422,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
