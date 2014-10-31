@@ -10,7 +10,7 @@
 #import "WPWatson.h"
 #import "UIColor+SPSColors.h"
 
-@interface ViewController ()
+@interface ViewController () <UITextViewDelegate>
 
 @property (nonatomic) UITextView *responseTextView;
 @property (nonatomic) UIButton *askButton;
@@ -49,10 +49,11 @@
     [self.questionField.layer setCornerRadius:10];
     [self.questionField setFont:[UIFont systemFontOfSize:25]];
     [self.view addSubview:self.questionField];
-
+    [self.questionField setDelegate:self];
+    
     self.askButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.askButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [self.askButton setFrame:CGRectInset(self.view.frame, 100, 200)];
+    [self.askButton setFrame:CGRectInset(self.view.frame, 100, 300)];
     [self.askButton setCenter:CGPointMake(self.view.frame.size.width*3/4+10, 50)];
     [self.askButton setTitle:@"Ask Watson" forState:UIControlStateNormal];
     [self.askButton setFont:[UIFont systemFontOfSize:20]];
@@ -84,5 +85,24 @@
         });
     }];
 }
+
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if ([text isEqualToString:@"\n"])  {
+        [textView resignFirstResponder];
+        [self tappedAsk];
+    }
+    return YES;
+}
+
+
+-(BOOL)textViewShouldEndEditing:(UITextView *)textView {
+    [textView resignFirstResponder];
+    [self tappedAsk];
+    return true;
+}
+
+//-(void)textViewDidEndEditing:(UITextView *)textView {
+//    
+//}
 
 @end

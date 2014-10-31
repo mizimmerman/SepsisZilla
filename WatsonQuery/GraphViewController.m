@@ -26,7 +26,7 @@
     self = [super init];
     if (self) {
         self.title = @"Jawbone";
-        [self.view setBackgroundColor:[UIColor yellowColor]];
+        [self.view setBackgroundColor:[UIColor whiteColor]];
         
     }
     return self;
@@ -37,13 +37,17 @@
     self.jawboneButton = [UIButton new];
     [self.jawboneButton setFrame:CGRectMake(10, 100, 100, 40)];
     [self.jawboneButton setTitle:@"Login" forState:UIControlStateNormal];
+    [self.jawboneButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.jawboneButton addTarget:self action:@selector(tappedLogin) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.jawboneButton];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self showSteps];
 }
+
+
 
 - (void)tappedLogin {
     NSLog(@"Tapped login");
@@ -67,6 +71,7 @@
                                                        //[self showSleep];
                                                        NSLog(@"response!!!!!!!!!");
                                                    }
+                                                   [self.jawboneLoginView removeFromSuperview];
                                                }];
     
 //    NSURL* url = [NSURL URLWithString:@"https://jawbone.com/auth/oauth2/auth?response_type=code&client_id=Xdcjl7E4-F0&redirect_uri=https://spotsis.herokuapp.com/oauthredirect"];
@@ -81,6 +86,9 @@
     CGFloat screenHeight = screenRect.size.height;
     
     [UPMoveAPI getMovesWithLimit:5U completion:^(NSArray *moves, UPURLResponse *response, NSError *error) {
+        if (error) {
+            NSLog(@"%@", error.userInfo);
+        }
         int i=0;
         for (UPMove *move in moves){
             NSLog(@"%@", move);
