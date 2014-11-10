@@ -16,7 +16,7 @@
 		8906C04119F5D77700291F64 /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8906C04019F5D77700291F64 /* GraphViewController.m */; };
 		890B6A7619EEE380007E839F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 890B6A7519EEE380007E839F /* main.m */; };
 		890B6A7919EEE380007E839F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 890B6A7819EEE380007E839F /* AppDelegate.m */; };
-		890B6A7C19EEE380007E839F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 890B6A7B19EEE380007E839F /* ViewController.m */; };
+		890B6A7C19EEE380007E839F /* SPSWatsonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 890B6A7B19EEE380007E839F /* SPSWatsonViewController.m */; };
 		890B6A8119EEE380007E839F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 890B6A8019EEE380007E839F /* Images.xcassets */; };
 		890B6A8419EEE380007E839F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 890B6A8219EEE380007E839F /* LaunchScreen.xib */; };
 		890B6A9019EEE380007E839F /* WatsonQueryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 890B6A8F19EEE380007E839F /* WatsonQueryTests.m */; };
@@ -54,8 +54,8 @@
 		890B6A7519EEE380007E839F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		890B6A7719EEE380007E839F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		890B6A7819EEE380007E839F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		890B6A7A19EEE380007E839F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		890B6A7B19EEE380007E839F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		890B6A7A19EEE380007E839F /* SPSWatsonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPSWatsonViewController.h; sourceTree = "<group>"; };
+		890B6A7B19EEE380007E839F /* SPSWatsonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPSWatsonViewController.m; sourceTree = "<group>"; };
 		890B6A8019EEE380007E839F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		890B6A8319EEE380007E839F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		890B6A8919EEE380007E839F /* WatsonQueryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WatsonQueryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,8 +128,8 @@
 				890B6A7819EEE380007E839F /* AppDelegate.m */,
 				8906C03C19F5833000291F64 /* TabViewController.h */,
 				8906C03D19F5833000291F64 /* TabViewController.m */,
-				890B6A7A19EEE380007E839F /* ViewController.h */,
-				890B6A7B19EEE380007E839F /* ViewController.m */,
+				890B6A7A19EEE380007E839F /* SPSWatsonViewController.h */,
+				890B6A7B19EEE380007E839F /* SPSWatsonViewController.m */,
 				8906C03F19F5D77700291F64 /* GraphViewController.h */,
 				8906C04019F5D77700291F64 /* GraphViewController.m */,
 				8925888819F9F9D200AEA7BE /* UIColor+SPSColors.h */,
@@ -272,7 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8906C02F19F5738F00291F64 /* WPWatson.m in Sources */,
-				890B6A7C19EEE380007E839F /* ViewController.m in Sources */,
+				890B6A7C19EEE380007E839F /* SPSWatsonViewController.m in Sources */,
 				8906C03519F573A100291F64 /* WPConstants.m in Sources */,
 				8906C03219F5739B00291F64 /* WPUtils.m in Sources */,
 				8925888A19F9F9D200AEA7BE /* UIColor+SPSColors.m in Sources */,

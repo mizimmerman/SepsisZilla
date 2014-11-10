@@ -7,12 +7,12 @@
 //
 
 #import "TabViewController.h"
-#import "ViewController.h"
+#import "SPSWatsonViewController.h"
 #import "GraphViewController.h"
 
 @interface TabViewController ()
 
-@property (nonatomic) ViewController *mainVC;
+@property (nonatomic) SPSWatsonViewController *mainVC;
 @property (nonatomic) GraphViewController *graphVC;
 
 @end
@@ -21,7 +21,7 @@
 
 - (void)loadView {
     [super loadView];
-    self.mainVC = [ViewController new];
+    self.mainVC = [SPSWatsonViewController new];
     self.graphVC = [GraphViewController new];
     [self setViewControllers:@[self.mainVC, self.graphVC]];
 }

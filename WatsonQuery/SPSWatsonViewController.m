@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 EECS 481. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "SPSWatsonViewController.h"
 #import "WPWatson.h"
 #import "UIColor+SPSColors.h"
 
-@interface ViewController () <UITextViewDelegate>
+@interface SPSWatsonViewController () <UITextViewDelegate>
 
 @property (nonatomic) UITextView *responseTextView;
 @property (nonatomic) UIButton *askButton;
@@ -20,7 +20,7 @@
 @end
 
 
-@implementation ViewController
+@implementation SPSWatsonViewController
 
 - (instancetype)init {
     self = [super init];

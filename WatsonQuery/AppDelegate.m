@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "SPSWatsonViewController.h"
 #import "TabViewController.h"
 
 @interface AppDelegate ()
