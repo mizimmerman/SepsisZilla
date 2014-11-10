@@ -44,7 +44,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self showSteps];
+//    [self showSteps];
 }
 
 

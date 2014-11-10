@@ -9,11 +9,15 @@
 #import "TabViewController.h"
 #import "ViewController.h"
 #import "GraphViewController.h"
+#import "SPSNotificationViewController.h"
+#import "SPSTrendViewController.h"
 
 @interface TabViewController ()
 
 @property (nonatomic) ViewController *mainVC;
-@property (nonatomic) GraphViewController *graphVC;
+//@property (nonatomic) GraphViewController *graphVC;
+@property (nonatomic) SPSNotificationViewController *notifVC;
+@property (nonatomic) SPSTrendViewController *trendVC;
 
 @end
 
@@ -22,8 +26,10 @@
 - (void)loadView {
     [super loadView];
     self.mainVC = [ViewController new];
-    self.graphVC = [GraphViewController new];
-    [self setViewControllers:@[self.mainVC, self.graphVC]];
+//    self.graphVC = [GraphViewController new];
+    self.notifVC = [SPSNotificationViewController new];
+    self.trendVC = [SPSTrendViewController new];
+    [self setViewControllers:@[self.mainVC, self.trendVC, self.notifVC]];
 }
 
 - (void)viewDidLoad {

@@ -22,7 +22,16 @@
 		890B6A9019EEE380007E839F /* WatsonQueryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 890B6A8F19EEE380007E839F /* WatsonQueryTests.m */; };
 		8925888A19F9F9D200AEA7BE /* UIColor+SPSColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925888919F9F9D200AEA7BE /* UIColor+SPSColors.m */; };
 		893A799819FC8CE40070D46E /* UPPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893A799719FC8CE40070D46E /* UPPlatform.framework */; };
-		893A79E319FDE0630070D46E /* Watson-Avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 893A79E219FDE0630070D46E /* Watson-Avatar.jpg */; };
+		894CB48C1A112DFE009E9B33 /* SPSNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 894CB48B1A112DFE009E9B33 /* SPSNotificationViewController.m */; };
+		894CB48F1A112FF7009E9B33 /* SPSNotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 894CB48E1A112FF7009E9B33 /* SPSNotificationTableViewCell.m */; };
+		894CB4931A113067009E9B33 /* SPSTrendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 894CB4921A113067009E9B33 /* SPSTrendViewController.m */; };
+		89F35DDD1A11328B001765E6 /* SPSTrendDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F35DDC1A11328B001765E6 /* SPSTrendDataManager.m */; };
+		89F35DE11A113434001765E6 /* SPSTrendLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F35DE01A113434001765E6 /* SPSTrendLayout.m */; };
+		89F35DE41A113595001765E6 /* SPSTrendViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F35DE31A113595001765E6 /* SPSTrendViewCell.m */; };
+		89F35DE71A11377F001765E6 /* SPSGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F35DE61A11377F001765E6 /* SPSGraphView.m */; };
+		89F35DEC1A113887001765E6 /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F35DE91A113887001765E6 /* BEMLine.m */; };
+		89F35DED1A113887001765E6 /* BEMSimpleLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F35DEB1A113887001765E6 /* BEMSimpleLineGraphView.m */; };
+		89F35DF01A1138CF001765E6 /* BEMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F35DEF1A1138CF001765E6 /* BEMCircle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +73,26 @@
 		8925888819F9F9D200AEA7BE /* UIColor+SPSColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SPSColors.h"; sourceTree = "<group>"; };
 		8925888919F9F9D200AEA7BE /* UIColor+SPSColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SPSColors.m"; sourceTree = "<group>"; };
 		893A799719FC8CE40070D46E /* UPPlatform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UPPlatform.framework; path = UPPlatformSDK/UPPlatform.framework; sourceTree = "<group>"; };
-		893A79E219FDE0630070D46E /* Watson-Avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Watson-Avatar.jpg"; path = "../../../../../../Downloads/Watson-Avatar.jpg"; sourceTree = "<group>"; };
+		894CB48A1A112DFE009E9B33 /* SPSNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSNotificationViewController.h; sourceTree = "<group>"; };
+		894CB48B1A112DFE009E9B33 /* SPSNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSNotificationViewController.m; sourceTree = "<group>"; };
+		894CB48D1A112FF7009E9B33 /* SPSNotificationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSNotificationTableViewCell.h; sourceTree = "<group>"; };
+		894CB48E1A112FF7009E9B33 /* SPSNotificationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSNotificationTableViewCell.m; sourceTree = "<group>"; };
+		894CB4911A113067009E9B33 /* SPSTrendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSTrendViewController.h; sourceTree = "<group>"; };
+		894CB4921A113067009E9B33 /* SPSTrendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSTrendViewController.m; sourceTree = "<group>"; };
+		89F35DDB1A11328B001765E6 /* SPSTrendDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSTrendDataManager.h; sourceTree = "<group>"; };
+		89F35DDC1A11328B001765E6 /* SPSTrendDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSTrendDataManager.m; sourceTree = "<group>"; };
+		89F35DDF1A113434001765E6 /* SPSTrendLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSTrendLayout.h; sourceTree = "<group>"; };
+		89F35DE01A113434001765E6 /* SPSTrendLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSTrendLayout.m; sourceTree = "<group>"; };
+		89F35DE21A113595001765E6 /* SPSTrendViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSTrendViewCell.h; sourceTree = "<group>"; };
+		89F35DE31A113595001765E6 /* SPSTrendViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSTrendViewCell.m; sourceTree = "<group>"; };
+		89F35DE51A11377F001765E6 /* SPSGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSGraphView.h; sourceTree = "<group>"; };
+		89F35DE61A11377F001765E6 /* SPSGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSGraphView.m; sourceTree = "<group>"; };
+		89F35DE81A113887001765E6 /* BEMLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMLine.h; sourceTree = "<group>"; };
+		89F35DE91A113887001765E6 /* BEMLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMLine.m; sourceTree = "<group>"; };
+		89F35DEA1A113887001765E6 /* BEMSimpleLineGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMSimpleLineGraphView.h; sourceTree = "<group>"; };
+		89F35DEB1A113887001765E6 /* BEMSimpleLineGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMSimpleLineGraphView.m; sourceTree = "<group>"; };
+		89F35DEE1A1138CF001765E6 /* BEMCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCircle.h; sourceTree = "<group>"; };
+		89F35DEF1A1138CF001765E6 /* BEMCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCircle.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,13 +158,12 @@
 				8906C03D19F5833000291F64 /* TabViewController.m */,
 				890B6A7A19EEE380007E839F /* ViewController.h */,
 				890B6A7B19EEE380007E839F /* ViewController.m */,
-				8906C03F19F5D77700291F64 /* GraphViewController.h */,
-				8906C04019F5D77700291F64 /* GraphViewController.m */,
+				89F35DDE1A113293001765E6 /* Trends */,
+				894CB4901A11303A009E9B33 /* Notifications */,
 				8925888819F9F9D200AEA7BE /* UIColor+SPSColors.h */,
 				8925888919F9F9D200AEA7BE /* UIColor+SPSColors.m */,
 				8906C03B19F5807300291F64 /* Watson */,
 				890B6A8019EEE380007E839F /* Images.xcassets */,
-				893A79E219FDE0630070D46E /* Watson-Avatar.jpg */,
 				890B6A8219EEE380007E839F /* LaunchScreen.xib */,
 				890B6A7319EEE380007E839F /* Supporting Files */,
 			);
@@ -167,6 +194,42 @@
 				890B6A8E19EEE380007E839F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		894CB4901A11303A009E9B33 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				894CB48A1A112DFE009E9B33 /* SPSNotificationViewController.h */,
+				894CB48B1A112DFE009E9B33 /* SPSNotificationViewController.m */,
+				894CB48D1A112FF7009E9B33 /* SPSNotificationTableViewCell.h */,
+				894CB48E1A112FF7009E9B33 /* SPSNotificationTableViewCell.m */,
+			);
+			name = Notifications;
+			sourceTree = "<group>";
+		};
+		89F35DDE1A113293001765E6 /* Trends */ = {
+			isa = PBXGroup;
+			children = (
+				8906C03F19F5D77700291F64 /* GraphViewController.h */,
+				8906C04019F5D77700291F64 /* GraphViewController.m */,
+				894CB4911A113067009E9B33 /* SPSTrendViewController.h */,
+				894CB4921A113067009E9B33 /* SPSTrendViewController.m */,
+				89F35DE21A113595001765E6 /* SPSTrendViewCell.h */,
+				89F35DE31A113595001765E6 /* SPSTrendViewCell.m */,
+				89F35DE51A11377F001765E6 /* SPSGraphView.h */,
+				89F35DE61A11377F001765E6 /* SPSGraphView.m */,
+				89F35DEE1A1138CF001765E6 /* BEMCircle.h */,
+				89F35DEF1A1138CF001765E6 /* BEMCircle.m */,
+				89F35DE81A113887001765E6 /* BEMLine.h */,
+				89F35DE91A113887001765E6 /* BEMLine.m */,
+				89F35DEA1A113887001765E6 /* BEMSimpleLineGraphView.h */,
+				89F35DEB1A113887001765E6 /* BEMSimpleLineGraphView.m */,
+				89F35DDF1A113434001765E6 /* SPSTrendLayout.h */,
+				89F35DE01A113434001765E6 /* SPSTrendLayout.m */,
+				89F35DDB1A11328B001765E6 /* SPSTrendDataManager.h */,
+				89F35DDC1A11328B001765E6 /* SPSTrendDataManager.m */,
+			);
+			name = Trends;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,7 +313,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				893A79E319FDE0630070D46E /* Watson-Avatar.jpg in Resources */,
 				8906C03719F573A700291F64 /* config.plist in Resources */,
 				890B6A8419EEE380007E839F /* LaunchScreen.xib in Resources */,
 				890B6A8119EEE380007E839F /* Images.xcassets in Resources */,
@@ -271,16 +333,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89F35DF01A1138CF001765E6 /* BEMCircle.m in Sources */,
 				8906C02F19F5738F00291F64 /* WPWatson.m in Sources */,
 				890B6A7C19EEE380007E839F /* ViewController.m in Sources */,
+				89F35DDD1A11328B001765E6 /* SPSTrendDataManager.m in Sources */,
 				8906C03519F573A100291F64 /* WPConstants.m in Sources */,
 				8906C03219F5739B00291F64 /* WPUtils.m in Sources */,
+				894CB48C1A112DFE009E9B33 /* SPSNotificationViewController.m in Sources */,
+				894CB4931A113067009E9B33 /* SPSTrendViewController.m in Sources */,
+				89F35DE71A11377F001765E6 /* SPSGraphView.m in Sources */,
+				89F35DE11A113434001765E6 /* SPSTrendLayout.m in Sources */,
 				8925888A19F9F9D200AEA7BE /* UIColor+SPSColors.m in Sources */,
 				8906C03E19F5833000291F64 /* TabViewController.m in Sources */,
 				8906C04119F5D77700291F64 /* GraphViewController.m in Sources */,
+				89F35DE41A113595001765E6 /* SPSTrendViewCell.m in Sources */,
 				890B6A7919EEE380007E839F /* AppDelegate.m in Sources */,
+				89F35DEC1A113887001765E6 /* BEMLine.m in Sources */,
+				894CB48F1A112FF7009E9B33 /* SPSNotificationTableViewCell.m in Sources */,
 				890B6A7619EEE380007E839F /* main.m in Sources */,
 				8906C03A19F5744E00291F64 /* WPWatsonQuestionResponse.m in Sources */,
+				89F35DED1A113887001765E6 /* BEMSimpleLineGraphView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +473,7 @@
 					"$(PROJECT_DIR)/UPPlatformSDK",
 				);
 				INFOPLIST_FILE = WatsonQuery/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -419,6 +492,7 @@
 					"$(PROJECT_DIR)/UPPlatformSDK",
 				);
 				INFOPLIST_FILE = WatsonQuery/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
