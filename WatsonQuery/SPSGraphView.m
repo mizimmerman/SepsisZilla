@@ -23,9 +23,15 @@
     if (self) {
         // Initialization code
         [self setBackgroundColor:[UIColor yellowColor]];
-        BEMSimpleLineGraphView *graph = [[BEMSimpleLineGraphView alloc] initWithFrame:self.bounds];
+        BEMSimpleLineGraphView *graph = [[BEMSimpleLineGraphView alloc] initWithFrame:self.frame];
+        [graph setBackgroundColor:[UIColor redColor]];
         [graph setDataSource:self];
         [graph setDelegate:self];
+        graph.colorBackgroundXaxis = [UIColor greenColor];
+        graph.colorBottom = [UIColor greenColor];
+        graph.colorXaxisLabel = [UIColor greenColor];
+        graph.colorYaxisLabel = [UIColor greenColor];
+        [graph reloadGraph];
         [self addSubview:graph];
     }
     return self;
@@ -33,7 +39,7 @@
 
 -(NSInteger)numberOfGapsBetweenLabelsOnLineGraph:(BEMSimpleLineGraphView *)graph
 {
-    return 10;
+    return 2;
 }
 
 -(BOOL)lineGraph:(BEMSimpleLineGraphView *)graph alwaysDisplayPopUpAtIndex:(CGFloat)index
@@ -41,5 +47,16 @@
     return YES;
     
 }
+
+-(CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index
+{
+    return 100 % rand();
+}
+
+-(NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph
+{
+    return 30;
+}
+
 
 @end
