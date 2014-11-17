@@ -7,7 +7,7 @@
 //
 
 #import "TabViewController.h"
-#import "ViewController.h"
+#import "SPSWatsonViewController.h"
 #import "GraphViewController.h"
 #import "SPSNotificationViewController.h"
 #import "SPSTrendViewController.h"
