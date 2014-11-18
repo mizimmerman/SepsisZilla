@@ -33,6 +33,7 @@
 		89698E0D1A1A6A0A00CE8FFB /* SPSTrendViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89698E021A1A6A0A00CE8FFB /* SPSTrendViewCell.m */; };
 		89698E0E1A1A6A0A00CE8FFB /* SPSTrendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89698E041A1A6A0A00CE8FFB /* SPSTrendViewController.m */; };
 		89698E151A1A6DB800CE8FFB /* SPSJawboneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89698E141A1A6DB800CE8FFB /* SPSJawboneManager.m */; };
+		897001081A1BC73C00F6DD2A /* SPSTrendDataManager+Algorithms.m in Sources */ = {isa = PBXBuildFile; fileRef = 897001071A1BC73C00F6DD2A /* SPSTrendDataManager+Algorithms.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,8 @@
 		89698E041A1A6A0A00CE8FFB /* SPSTrendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSTrendViewController.m; sourceTree = "<group>"; };
 		89698E131A1A6DB800CE8FFB /* SPSJawboneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSJawboneManager.h; sourceTree = "<group>"; };
 		89698E141A1A6DB800CE8FFB /* SPSJawboneManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSJawboneManager.m; sourceTree = "<group>"; };
+		897001061A1BC73C00F6DD2A /* SPSTrendDataManager+Algorithms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SPSTrendDataManager+Algorithms.h"; sourceTree = "<group>"; };
+		897001071A1BC73C00F6DD2A /* SPSTrendDataManager+Algorithms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SPSTrendDataManager+Algorithms.m"; sourceTree = "<group>"; };
 		89B2C5911A1BB09A0076D1C1 /* SPSGraphDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPSGraphDataSource.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -209,6 +212,8 @@
 				89698E041A1A6A0A00CE8FFB /* SPSTrendViewController.m */,
 				89698DFD1A1A6A0A00CE8FFB /* SPSTrendDataManager.h */,
 				89698DFE1A1A6A0A00CE8FFB /* SPSTrendDataManager.m */,
+				897001061A1BC73C00F6DD2A /* SPSTrendDataManager+Algorithms.h */,
+				897001071A1BC73C00F6DD2A /* SPSTrendDataManager+Algorithms.m */,
 				89B2C5901A1BAE1F0076D1C1 /* Views */,
 				89698E131A1A6DB800CE8FFB /* SPSJawboneManager.h */,
 				89698E141A1A6DB800CE8FFB /* SPSJawboneManager.m */,
@@ -380,6 +385,7 @@
 				89698E151A1A6DB800CE8FFB /* SPSJawboneManager.m in Sources */,
 				89698E0A1A1A6A0A00CE8FFB /* SPSNotificationViewController.m in Sources */,
 				89698E0C1A1A6A0A00CE8FFB /* SPSTrendLayout.m in Sources */,
+				897001081A1BC73C00F6DD2A /* SPSTrendDataManager+Algorithms.m in Sources */,
 				8906C03519F573A100291F64 /* WPConstants.m in Sources */,
 				8906C03219F5739B00291F64 /* WPUtils.m in Sources */,
 				89698E091A1A6A0A00CE8FFB /* SPSNotificationTableViewCell.m in Sources */,
@@ -513,7 +519,7 @@
 					"$(PROJECT_DIR)/UPPlatformSDK",
 				);
 				INFOPLIST_FILE = WatsonQuery/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -533,7 +539,7 @@
 					"$(PROJECT_DIR)/UPPlatformSDK",
 				);
 				INFOPLIST_FILE = WatsonQuery/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

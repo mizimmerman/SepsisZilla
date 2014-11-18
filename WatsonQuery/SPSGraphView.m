@@ -60,7 +60,7 @@
 
 -(NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph
 {
-    return 15;
+    return [self.dataSource numberOfPointsForType:self.type];
 }
 
 -(NSString *)popUpSuffixForlineGraph:(BEMSimpleLineGraphView *)graph

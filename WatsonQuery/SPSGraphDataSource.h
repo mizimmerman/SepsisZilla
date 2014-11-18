@@ -11,12 +11,13 @@
 typedef NS_ENUM(NSUInteger, SPSGraphType) {
     SPSGraphTypeSleep,
     SPSGraphTypeActivity,
-    SPSGraphTypeHR
+    SPSGraphTypeHR,
+    SPSGraphCount
 };
 
 @protocol SPSGraphDataSource <NSObject>
+
 -(CGFloat)valueForGraph:(SPSGraphType)type atXValue:(NSInteger)x;
-//-(CGFloat)valueForIndex:(NSInteger)index;
-//-(SPSGraphType)type;
+-(NSInteger)numberOfPointsForType:(SPSGraphType)type;
 
 @end

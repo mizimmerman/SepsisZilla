@@ -53,27 +53,41 @@
     SPSTrendViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     [cell setType:indexPath.row];
     [cell setGraphDataSource:self];
-    cell.headerText = [[SPSTrendDataManager data] headerForIndex:indexPath.row];
-    cell.summaryText = [[SPSTrendDataManager data] summaryForIndex:indexPath.row];
+    cell.headerText = [[SPSTrendDataManager data] headerForGraph:indexPath.row];
+    cell.summaryText = [[SPSTrendDataManager data] summaryForGraph:indexPath.row];
     return cell;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [SPSTrendDataManager data].trendsCount;
+    return SPSGraphCount;
 }
 
 -(CGFloat)valueForGraph:(SPSGraphType)type atXValue:(NSInteger)x
 {
     switch (type) {
         case SPSGraphTypeActivity:
-            return [[SPSTrendDataManager data] activityValueForDate:x];
+            return [[SPSTrendDataManager data] activityValueForIndex:x];
         case SPSGraphTypeSleep:
-            return [[SPSTrendDataManager data] sleepValueForDate:x];
+            return [[SPSTrendDataManager data] sleepValueForIndex:x];
         case SPSGraphTypeHR:
             return [[SPSTrendDataManager data] heartRateValueForIndex:x];
         default:
-            return 10;
+            return 0;
+    }
+}
+
+-(NSInteger)numberOfPointsForType:(SPSGraphType)type
+{
+    switch (type) {
+        case SPSGraphTypeActivity:
+            return [[SPSTrendDataManager data] activityCount];
+        case SPSGraphTypeSleep:
+            return [[SPSTrendDataManager data] sleepCount];
+        case SPSGraphTypeHR:
+            return [[SPSTrendDataManager data] heartRateCount];
+        default:
+            return 0;
     }
 }
 

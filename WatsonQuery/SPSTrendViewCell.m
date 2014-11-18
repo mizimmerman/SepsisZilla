@@ -35,11 +35,11 @@
 //        [self.graphView setType:SPSGraphTypeHR];
         [self addSubview:self.graphView];
         
-        self.summaryLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 290, 200, 100)];
+        self.summaryLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 290, 200, 200)];
         [self.summaryLabel setText:@"Your sleep cycles have changed by..."];
         [self.summaryLabel setTextAlignment:NSTextAlignmentCenter];
         [self.summaryLabel setTextColor:[UIColor darkGrayColor]];
-        [self.summaryLabel setNumberOfLines:5];
+        [self.summaryLabel setNumberOfLines:10];
         [self addSubview:self.summaryLabel];        
     }
     return self;

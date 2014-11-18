@@ -8,17 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CGBase.h>
+#import "SPSGraphDataSource.h"
 
 @interface SPSTrendDataManager : NSObject
 
 +(SPSTrendDataManager *)data;
 
-@property (nonatomic) NSUInteger trendsCount;
-
--(NSString *)headerForIndex:(NSInteger)index;
--(NSString *)summaryForIndex:(NSInteger)index;
--(CGFloat)activityValueForDate:(NSInteger)index;
--(CGFloat)sleepValueForDate:(NSInteger)index;
+-(NSString *)headerForGraph:(SPSGraphType)type;
+-(NSString *)summaryForGraph:(SPSGraphType)type;
+-(CGFloat)activityValueForIndex:(NSInteger)index;
+-(CGFloat)sleepValueForIndex:(NSInteger)index;
 -(CGFloat)heartRateValueForIndex:(NSInteger)index;
+-(NSInteger)activityCount;
+-(NSInteger)sleepCount;
+-(NSInteger)heartRateCount;
 
 @end
