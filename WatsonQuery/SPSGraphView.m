@@ -11,6 +11,7 @@
 
 @interface SPSGraphView () <BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate>
 
+@property (nonatomic) BEMSimpleLineGraphView *graph;
 
 @end
 
@@ -21,20 +22,25 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
-        [self setBackgroundColor:[UIColor yellowColor]];
-        BEMSimpleLineGraphView *graph = [[BEMSimpleLineGraphView alloc] initWithFrame:self.frame];
-        [graph setBackgroundColor:[UIColor redColor]];
-        [graph setDataSource:self];
-        [graph setDelegate:self];
-        graph.colorBackgroundXaxis = [UIColor greenColor];
-        graph.colorBottom = [UIColor greenColor];
-        graph.colorXaxisLabel = [UIColor greenColor];
-        graph.colorYaxisLabel = [UIColor greenColor];
-        [graph reloadGraph];
-        [self addSubview:graph];
+        self.graph = [[BEMSimpleLineGraphView alloc] initWithFrame:self.bounds];
+        [self.graph setDataSource:self];
+        [self.graph setDelegate:self];
+        
+        [self.graph setColorLine:[UIColor whiteColor]];
+        [self.graph setEnableBezierCurve:YES];
+        [self.graph setEnablePopUpReport:YES];
+        [self.graph setEnablePopUpReport:YES];
+        [self.graph setWidthLine:3];
+        [self.graph reloadGraph];
+        [self addSubview:self.graph];
     }
     return self;
+}
+
+-(void)setDataSource:(id<SPSGraphDataSource>)dataSource
+{
+    _dataSource = dataSource;
+    [self.graph reloadGraph];
 }
 
 -(NSInteger)numberOfGapsBetweenLabelsOnLineGraph:(BEMSimpleLineGraphView *)graph
@@ -45,18 +51,30 @@
 -(BOOL)lineGraph:(BEMSimpleLineGraphView *)graph alwaysDisplayPopUpAtIndex:(CGFloat)index
 {
     return YES;
-    
 }
 
 -(CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index
 {
-    return 100 % rand();
+    return [self.dataSource valueForGraph:self.type atXValue:index];
 }
 
 -(NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph
 {
-    return 30;
+    return 15;
 }
 
+-(NSString *)popUpSuffixForlineGraph:(BEMSimpleLineGraphView *)graph
+{
+    switch (self.type) {
+        case SPSGraphTypeActivity:
+            return @" steps";
+        case SPSGraphTypeHR:
+            return @" bpm";
+        case SPSGraphTypeSleep:
+            return @" hours";
+        default:
+            return @"";
+    }
+}
 
 @end

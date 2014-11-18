@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SPSGraphDataSource.h"
 
 @interface SPSGraphView : UIView
+
+@property (nonatomic) id<SPSGraphDataSource> dataSource;
+@property (nonatomic) SPSGraphType type;
 
 @end

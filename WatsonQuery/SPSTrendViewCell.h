@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SPSGraphDataSource.h"
+
+@class SPSGraphView;
 
 @interface SPSTrendViewCell : UICollectionViewCell
+
+@property (nonatomic) NSString *headerText;
+@property (nonatomic) NSString *summaryText;
+
+-(void)setGraphDataSource:(id<SPSGraphDataSource>)dataSource;
+-(void)setType:(SPSGraphType)type;
 
 @end

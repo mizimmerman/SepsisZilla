@@ -7,6 +7,7 @@
 //
 
 #import "SPSTrendDataManager.h"
+#import "SPSGraphDataSource.h"
 
 @implementation SPSTrendDataManager
 
@@ -27,6 +28,50 @@
         self.trendsCount = 3;
     }
     return self;
+}
+
+-(NSString *)headerForIndex:(NSInteger)index
+{
+    switch (index) {
+        case SPSGraphTypeActivity:
+            return @"Activity Trends";
+        case SPSGraphTypeSleep:
+            return @"Sleep Cycles";
+        case SPSGraphTypeHR:
+            return @"Heart Rate Trends";
+        default:
+            return @"";
+    }
+}
+
+-(NSString *)summaryForIndex:(NSInteger)index
+{
+    NSString *message = [NSString stringWithFormat:@"You have gotten septic! See a doctor!"];
+    return message;
+}
+
+-(CGFloat)sleepValueForDate:(NSInteger)index
+{
+    if (index % 2 == 0) {
+        return 8;
+    }
+    return 6;
+}
+
+-(CGFloat)activityValueForDate:(NSInteger)index
+{
+    if (index % 2 == 0) {
+        return 10000;
+    }
+    return 5000;
+}
+
+-(CGFloat)heartRateValueForIndex:(NSInteger)index
+{
+    if (index % 2 == 0) {
+        return 60;
+    }
+    return 70;
 }
 
 @end

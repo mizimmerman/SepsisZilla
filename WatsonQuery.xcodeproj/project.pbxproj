@@ -96,6 +96,7 @@
 		89698E041A1A6A0A00CE8FFB /* SPSTrendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSTrendViewController.m; sourceTree = "<group>"; };
 		89698E131A1A6DB800CE8FFB /* SPSJawboneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSJawboneManager.h; sourceTree = "<group>"; };
 		89698E141A1A6DB800CE8FFB /* SPSJawboneManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSJawboneManager.m; sourceTree = "<group>"; };
+		89B2C5911A1BB09A0076D1C1 /* SPSGraphDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPSGraphDataSource.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +165,7 @@
 				89698E101A1A6A2800CE8FFB /* Notifications */,
 				89698E0F1A1A6A1D00CE8FFB /* Trends */,
 				8906C03B19F5807300291F64 /* Watson */,
+				89B2C58F1A1BADC70076D1C1 /* Deprecated */,
 				89698E121A1A6CF900CE8FFB /* Categories */,
 				890B6A8019EEE380007E839F /* Images.xcassets */,
 				890B6A8219EEE380007E839F /* LaunchScreen.xib */,
@@ -202,18 +204,12 @@
 			isa = PBXGroup;
 			children = (
 				89698E111A1A6A3C00CE8FFB /* BEM Graph */,
-				89698DF71A1A6A0A00CE8FFB /* SPSGraphView.h */,
-				89698DF81A1A6A0A00CE8FFB /* SPSGraphView.m */,
-				89698DFD1A1A6A0A00CE8FFB /* SPSTrendDataManager.h */,
-				89698DFE1A1A6A0A00CE8FFB /* SPSTrendDataManager.m */,
-				89698DFF1A1A6A0A00CE8FFB /* SPSTrendLayout.h */,
-				89698E001A1A6A0A00CE8FFB /* SPSTrendLayout.m */,
-				89698E011A1A6A0A00CE8FFB /* SPSTrendViewCell.h */,
-				89698E021A1A6A0A00CE8FFB /* SPSTrendViewCell.m */,
+				89B2C5911A1BB09A0076D1C1 /* SPSGraphDataSource.h */,
 				89698E031A1A6A0A00CE8FFB /* SPSTrendViewController.h */,
 				89698E041A1A6A0A00CE8FFB /* SPSTrendViewController.m */,
-				8906C03F19F5D77700291F64 /* GraphViewController.h */,
-				8906C04019F5D77700291F64 /* GraphViewController.m */,
+				89698DFD1A1A6A0A00CE8FFB /* SPSTrendDataManager.h */,
+				89698DFE1A1A6A0A00CE8FFB /* SPSTrendDataManager.m */,
+				89B2C5901A1BAE1F0076D1C1 /* Views */,
 				89698E131A1A6DB800CE8FFB /* SPSJawboneManager.h */,
 				89698E141A1A6DB800CE8FFB /* SPSJawboneManager.m */,
 			);
@@ -251,6 +247,28 @@
 				8925888919F9F9D200AEA7BE /* UIColor+SPSColors.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		89B2C58F1A1BADC70076D1C1 /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				8906C03F19F5D77700291F64 /* GraphViewController.h */,
+				8906C04019F5D77700291F64 /* GraphViewController.m */,
+			);
+			name = Deprecated;
+			sourceTree = "<group>";
+		};
+		89B2C5901A1BAE1F0076D1C1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				89698E011A1A6A0A00CE8FFB /* SPSTrendViewCell.h */,
+				89698E021A1A6A0A00CE8FFB /* SPSTrendViewCell.m */,
+				89698DF71A1A6A0A00CE8FFB /* SPSGraphView.h */,
+				89698DF81A1A6A0A00CE8FFB /* SPSGraphView.m */,
+				89698DFF1A1A6A0A00CE8FFB /* SPSTrendLayout.h */,
+				89698E001A1A6A0A00CE8FFB /* SPSTrendLayout.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
