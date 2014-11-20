@@ -30,10 +30,13 @@
     self.notifVC = [SPSNotificationViewController new];
     self.trendVC = [SPSTrendViewController new];
     [self setViewControllers:@[self.mainVC, self.trendVC, self.notifVC]];
+   
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
 }
 
 @end

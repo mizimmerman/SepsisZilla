@@ -40,7 +40,42 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+//    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+//    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:30];
+//    localNotification.alertBody = @"Your alert message";
+//    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+//    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+//    // Do any additional setup after loading the view.
+    
+    // Schedule the notification
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"America/Detroit"]];
+    NSDate *today = [NSDate date];
+
+    localNotification.fireDate = today;
+    
+    NSString *fmt = [NSString stringWithFormat:@"My formatted string: %@", today];
+    
+    printf("%s", [fmt cStringUsingEncoding:[NSString defaultCStringEncoding]]);
+    
+    localNotification.alertBody = @"Show me the item";
+    localNotification.alertAction = @"Show me the item";
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    
+    // Request to reload table view data
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadData" object:self];
+    
+    // Dismiss the view controller
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    
+   
+    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

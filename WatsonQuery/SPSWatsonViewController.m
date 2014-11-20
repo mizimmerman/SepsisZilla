@@ -54,7 +54,7 @@
     self.askButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.askButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [self.askButton setFrame:CGRectInset(self.view.frame, 100, 300)];
-    [self.askButton setCenter:CGPointMake(self.view.frame.size.width*3/4+10, 50)];
+    [self.askButton setCenter:CGPointMake(self.view.frame.size.width*1/2, 200)];
     [self.askButton setTitle:@"Ask Watson" forState:UIControlStateNormal];
     [self.askButton setFont:[UIFont systemFontOfSize:20]];
     [self.askButton addTarget:self action:@selector(tappedAsk) forControlEvents:UIControlEventTouchUpInside];
