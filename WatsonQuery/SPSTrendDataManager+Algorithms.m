@@ -61,6 +61,13 @@
     return 0;
 }
 
-
+// Algorithms for determining whether to send a health alert
+// Sleep and activity (same algorithm with different data sources)
+-(NSString *)shouldSendNotificationForValues:(NSArray *)values forTrendType:(SPSGraphType) trendType
+{
+    //switch(type)
+        //conditionals per type
+        //return message depending on conditional hit
+}
 
 @end
