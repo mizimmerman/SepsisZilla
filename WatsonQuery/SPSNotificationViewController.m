@@ -8,6 +8,8 @@
 
 #import "SPSNotificationViewController.h"
 #import "SPSNotificationTableViewCell.h"
+#import "SPSNotificationManager.h"
+#import "SPSNotification.h"
 
 @interface SPSNotificationViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -69,12 +71,14 @@
 {
     SPSNotificationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     [cell setBackgroundColor:[UIColor whiteColor]];
+    SPSNotification *noty = [[SPSNotificationManager data].fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = noty.text;
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return [SPSNotificationManager data].fetchedResultsController.fetchedObjects.count;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

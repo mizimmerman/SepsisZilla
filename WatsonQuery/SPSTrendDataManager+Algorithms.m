@@ -24,28 +24,43 @@
     return [NSNumber numberWithInteger:change];
 }
 
--(NSNumber *)changeOfValues:(NSArray *)values ofTypes:(Class)type forBaseInterval:(NSIndexSet *)base currentInterval:(NSIndexSet *)cur
+-(NSString *)changeOfValues:(NSArray *)values ofTypes:(Class)type forBaseRange:(NSIndexSet *)baseRange currentRange:(NSIndexSet *)curRange
 {
-    NSInteger change = 5;
+    float change;
     if (type == [NSNumber class]) {
-        __block NSInteger sumBase = 0;
-        [base enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
-            sumBase += [[values objectAtIndex:idx] integerValue];
+        __block float sumBase = 0;
+        [baseRange enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+            sumBase += [[values objectAtIndex:idx] floatValue];
         }];
-        NSInteger avgBase = sumBase / base.count;
+        float avgBase = sumBase / baseRange.count;
         
-        __block NSInteger sumCur = 0;
-        [cur enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
-            sumCur += [[values objectAtIndex:idx] integerValue];
+        __block float sumCur = 0;
+        [curRange enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+            sumCur += [[values objectAtIndex:idx] floatValue];
         }];
 //        NSNumber *fullAverage = [self averageOfValues:values ofTypes:type];
         
-        NSInteger avgCur = sumCur / cur.count;
-        NSInteger numer = (avgCur - avgBase);
-        NSInteger denom = (cur.count);
+        float avgCur = sumCur / curRange.count;
+        float numer = (avgCur - avgBase);
+        float denom = (curRange.count);
         change = numer / denom;
     }
-    return [NSNumber numberWithInteger:change];
+    
+    NSNumberFormatter *formatter = [NSNumberFormatter new];
+    formatter.numberStyle = NSNumberFormatterDecimalStyle;
+    formatter.maximumFractionDigits = 2;  //Set number of fractional digits
+    NSString *roundedNum = [formatter stringFromNumber:[NSNumber numberWithFloat:change]];
+
+    return roundedNum;
 }
+
+
+//used for returning largest and smallest values of a trend over an interval
+-(NSNumber *)valueForPredicate:(NSPredicate *)predicate ofValues:(NSArray *)values ofType:(Class)type overRange:(NSIndexSet *)range
+{
+    return 0;
+}
+
+
 
 @end
