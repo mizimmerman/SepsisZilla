@@ -33,7 +33,7 @@
 {
     self = [super init];
     if (self) {
-        self.sleeps = @[@4, @5, @6, @8, @4, @9, @6, @6, @9, @9, @9, @9, @8];
+        self.sleeps = @[@4, @5, @6, @8, @4, @9, @6, @6, @9, @9, @9, @9, @8, @3, @3, @3, @3];
         self.activities = @[@9000, @300, @4800, @8500, @3000, @8000, @1000, @9000, @9000, @10000, @5000, @50000];
         self.heartRates = @[@60, @80, @60, @80, @90, @90, @60, @60, @90, @90, @95, @80, @85];
         
@@ -57,50 +57,42 @@
 
 -(NSString *)summaryForGraph:(SPSGraphType)type
 {
-    NSNumber *average = 0;
-    NSNumber *change = 0;
-    NSString *message;
-    NSString *recommendation;
+    NSNumber *average;
+    NSString *change;
     NSString *unit;
-    NSString *moreLess;
-    NSInteger totalRecords;
+    NSInteger totalRecords = 0;
     NSInteger recent = 5;
-    NSIndexSet *cur = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.activities.count - recent, recent)];
-    NSIndexSet *base = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.activities.count - recent)];
+    NSIndexSet *recentRecords = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.activities.count - recent, recent)];
+    NSIndexSet *pastRecords = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.activities.count - recent)];
 
     switch (type) {
-        case SPSGraphTypeActivity: {
+        case SPSGraphTypeActivity:
             totalRecords = self.activities.count;
-            average = [self averageOfValues:self.activities ofTypes:[NSNumber class]];
-            change = [self changeOfValues:self.activities ofTypes:[NSNumber class] forBaseInterval:base currentInterval:cur];
             unit = @"steps";
-            moreLess = (change > 0) ? @"more" : @"less";
-            recommendation = (change > 0) ? @"Nice job!" : @"You have gotten septic! See a doctor!";
+            average = [self averageOfValues:self.activities ofTypes:[NSNumber class]];
+            change = [self changeOfValues:self.activities ofTypes:[NSNumber class] forBaseRange:pastRecords currentRange:recentRecords];
             break;
-        }
         case SPSGraphTypeSleep:
             totalRecords = self.sleeps.count;
             unit = @"hours";
             average = [self averageOfValues:self.sleeps ofTypes:[NSNumber class]];
-            change = [self changeOfValues:self.sleeps ofTypes:[NSNumber class] forBaseInterval:base currentInterval:cur];
-            moreLess = (change > 0) ? @"more" : @"less";
-            recommendation = (change > 0) ? @"Nice job!" : @"You have gotten septic! See a doctor!";
+            change = [self changeOfValues:self.sleeps ofTypes:[NSNumber class] forBaseRange:pastRecords currentRange:recentRecords];
             break;
         case SPSGraphTypeHR:
             totalRecords = self.heartRates.count;
             unit = @"bpm";
             average = [self averageOfValues:self.heartRates ofTypes:[NSNumber class]];
-            change = [self changeOfValues:self.heartRates ofTypes:[NSNumber class] forBaseInterval:base currentInterval:cur];
-            moreLess = (change > 0) ? @"more" : @"less";
-            recommendation = (change > 0) ? @"Nice job!" : @"You have gotten septic! See a doctor!";
-            break;
-        default:
+            change = [self changeOfValues:self.heartRates ofTypes:[NSNumber class] forBaseRange:pastRecords currentRange:recentRecords];
             break;
     }
-    message = [NSString stringWithFormat:@"For the past %i days you've averaged %@ steps. Over the past %i days, you've averaged %@ %@ %@ than average.", totalRecords, average, recent, change, moreLess, unit];
+    NSString *moreLess = (change > 0) ? @"more" : @"less";
+    
+    NSString *message = [NSString stringWithFormat:@"For the past %i days you've averaged %@ %@. Over the past %i days, you've averaged %@ %@ %@ than average.", totalRecords, average, unit, recent, change, moreLess, unit];
+    NSString *recommendation = (change > 0) ? @"Nice job!" : @"You have gotten septic! See a doctor!";
 
     return [NSString stringWithFormat:@"%@ %@", message, recommendation];
 }
+
 
 -(CGFloat)sleepValueForIndex:(NSInteger)index
 {
