@@ -7,6 +7,7 @@
 //
 
 #import "SPSTrendDataManager+Algorithms.h"
+#import <math.h>
 
 @implementation SPSTrendDataManager (Algorithms)
 
@@ -39,6 +40,29 @@
         avg = sum / max;
     }
     return [NSNumber numberWithInteger:avg];
+}
+
+// Calculate the standard deviation of the supplied set of values
+-(NSNumber *)standardDeviationOfValues:(NSArray *)values ofTypes:(Class)type
+{
+    if (type == [NSNumber class]) {
+        // Find mean
+        float mean = [[self averageOfValues:values ofTypes:type] floatValue];
+        
+        // Sum for all N (val - mean)^2
+        float sum = 0;
+        for (int i = 0; i < values.count; ++i) {
+            float valAtIndex = [[values objectAtIndex:i] floatValue];
+            sum += ((mean - valAtIndex) * (mean - valAtIndex));
+        }
+        // Divide by N
+        sum /= values.count;
+        
+        // Square root
+        float result = sqrt(sum);
+        return [NSNumber numberWithFloat:result];
+    }
+    return nil;
 }
 
 /* Calculates maximum of the given values over a span of the most recent number of days specified */
@@ -101,17 +125,18 @@
 }
 
 // Algorithms for determining whether to send a health alert
+// TODO: Choose baseline for sleep and activity (or customize based on gender, age, etc), determine how to calculate trends for heartrate assuming multiple values per day.
 -(NSString *)shouldSendNotificationForValues:(NSArray *)values ofTypes:(Class)type forTrendType:(SPSGraphType) trendType
 {
     switch(trendType) {
         case SPSGraphTypeSleep: {
             // Outside of target range or standard deviation for 5 days
-            NSInteger sleepBaseline = 8; //TODO get this from somewhere
-            NSInteger basePlusMinus = 2;
+            NSInteger sleepBaseline = 8; //TODO choose
+            NSInteger basePlusMinus = 2; //TODO choose
             NSNumber *averageSleep = [self averageOfValues:values ofTypes:type];
-            float sleepStdDev = 1.5; //TODO
+            float sleepStdDev = [[self standardDeviationOfValues:values ofTypes:type] floatValue];
             
-            if ([values count] >= 5) {
+            if (values.count >= 5) {
                 BOOL badSleep = true;
                 BOOL trendingHigh = true;
                 BOOL trendingLow = true;
@@ -138,12 +163,12 @@
         }
         case SPSGraphTypeActivity: {
             // Outside of target range or standard deviation for 5 days
-            NSInteger activityBaseline = 6000; //TODO get this from somewhere
+            NSInteger activityBaseline = 6000; //TODO choose
             NSInteger basePlusMinus = 1500; //TODO choose
             float averageActivity = [[self averageOfValues:values ofTypes:type] floatValue];
-            float activityStdDev = 1000; //TODO
+            float activityStdDev = [[self standardDeviationOfValues:values ofTypes:type] floatValue];
             
-            if ([values count] >= 5) {
+            if (values.count >= 5) {
                 BOOL badActivity = true;
                 BOOL trendingLow = true;
                 for (int day = 0; day < 5; ++day) {
@@ -157,13 +182,13 @@
                 if (badActivity) {
                     return @"Your activity has been too low for the past 5 days, which may be a sign of decreasing health. Contact your doctor.";
                 } else if (trendingLow) {
-                    return@"Your level of sleep has been unusually low compared to your average for the past 5 days. Consider contacting your doctor.";
+                    return@"Your level of activity has been unusually low compared to your average for the past 5 days. Consider contacting your doctor.";
                 }
             }
             return nil;
         }
         case SPSGraphTypeHR: {
-            NSInteger age = 15; //TODO: get age
+            NSInteger age = 22; //TODO: get age
             float mostRecentHR = [[values objectAtIndex:0] floatValue];
             if (mostRecentHR > 220 - age) {
                 return @"Most recent heart rate value is dangerously large. If this is not a mistake, contact your doctor immediately.";
