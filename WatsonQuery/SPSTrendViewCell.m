@@ -25,19 +25,19 @@
     if (self) {
         [self setBackgroundColor:[UIColor whiteColor]];
         
-        self.headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 20, 200, 100)];
+        self.headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 10, 200, 100)];
         [self.headerLabel setText:@"Sleep Cycles"];
         [self.headerLabel setTextAlignment:NSTextAlignmentCenter];
         [self.headerLabel setTextColor:[UIColor darkGrayColor]];
         [self addSubview:self.headerLabel];
         
-        self.graphView = [[SPSGraphView alloc] initWithFrame:CGRectMake(50, 120, 200, 150)];
+        self.graphView = [[SPSGraphView alloc] initWithFrame:CGRectMake(50, 110, 200, 150)];
 //        [self.graphView setType:SPSGraphTypeHR];
         [self addSubview:self.graphView];
         
-        self.summaryLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 290, 200, 200)];
+        self.summaryLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 200, 300, 400)];
         [self.summaryLabel setText:@"Your sleep cycles have changed by..."];
-        [self.summaryLabel setTextAlignment:NSTextAlignmentCenter];
+        [self.summaryLabel setTextAlignment:NSTextAlignmentLeft];
         [self.summaryLabel setTextColor:[UIColor darkGrayColor]];
         [self.summaryLabel setNumberOfLines:10];
         [self addSubview:self.summaryLabel];        
