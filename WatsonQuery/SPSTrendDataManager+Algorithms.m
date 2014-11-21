@@ -24,6 +24,45 @@
     return [NSNumber numberWithInteger:change];
 }
 
+/* Calculates average of the given values over a span of the most recent number of days specified */
+-(NSNumber *)averageOfValues:(NSArray *)values ofTypes:(Class)type numberOfDays:(NSInteger)days
+{
+    NSInteger avg = 0;
+    if (type == [NSNumber class]) {
+        //just basic array
+        NSInteger sum = 0;
+        NSInteger max = ((NSUInteger)days < [values count]) ? days : [values count];
+        for (int i=0; i < max; i++) {
+            NSNumber* num = [values objectAtIndex:i];
+            sum += [num intValue];
+        }
+        avg = sum / max;
+    }
+    return [NSNumber numberWithInteger:avg];
+}
+
+/* Calculates maximum of the given values over a span of the most recent number of days specified */
+-(NSNumber *)findHighest:(NSArray *)values ofTypes:(Class)type numberOfDays:(NSInteger)days
+{
+    NSNumber *max;
+    if (type == [NSNumber class]) {
+        NSArray *range = [values subarrayWithRange:NSMakeRange(0, days)];
+        max = [range valueForKeyPath:@"@max.intValue"];
+    }
+    return max;
+}
+
+/* Calculates minimum of the given values over a span of the most recent number of days specified */
+-(NSNumber *)findLowest:(NSArray *)values ofTypes:(Class)type numberOfDays:(NSInteger)days
+{
+    NSNumber *min;
+    if (type == [NSNumber class]) {
+        NSArray *range = [values subarrayWithRange:NSMakeRange(0, days)];
+        min = [range valueForKeyPath:@"@min.intValue"];
+    }
+    return min;
+}
+
 -(NSString *)changeOfValues:(NSArray *)values ofTypes:(Class)type forBaseRange:(NSIndexSet *)baseRange currentRange:(NSIndexSet *)curRange
 {
     float change;
