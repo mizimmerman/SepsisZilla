@@ -62,12 +62,84 @@
 }
 
 // Algorithms for determining whether to send a health alert
-// Sleep and activity (same algorithm with different data sources)
--(NSString *)shouldSendNotificationForValues:(NSArray *)values forTrendType:(SPSGraphType) trendType
+-(NSString *)shouldSendNotificationForValues:(NSArray *)values ofTypes:(Class)type forTrendType:(SPSGraphType) trendType
 {
-    //switch(type)
-        //conditionals per type
-        //return message depending on conditional hit
+    switch(trendType) {
+        case SPSGraphTypeSleep: {
+            // Outside of target range or standard deviation for 5 days
+            NSInteger sleepBaseline = 8; //TODO get this from somewhere
+            NSInteger basePlusMinus = 2;
+            NSNumber *averageSleep = [self averageOfValues:values ofTypes:type];
+            float sleepStdDev = 1.5; //TODO
+            
+            if ([values count] >= 5) {
+                BOOL badSleep = true;
+                BOOL trendingHigh = true;
+                BOOL trendingLow = true;
+                for (int night = 0; night < 5; ++night) {
+                    NSInteger sleepForNight = [[values objectAtIndex:night] floatValue];
+                    if (sleepForNight >= sleepBaseline - basePlusMinus && sleepForNight <= sleepBaseline + basePlusMinus) {
+                        badSleep = false;
+                    } else if (sleepForNight >= [averageSleep floatValue] - sleepStdDev) {
+                        trendingLow = false;
+                    } else if (sleepForNight <= [averageSleep floatValue] + sleepStdDev) {
+                        trendingHigh = false;
+                    }
+                }
+                if (badSleep) {
+                    return @"Your sleep has been dangerously abnormal for the past 5 nights, which may be a sign of decreasing health. Contact your doctor.";
+                } else if (trendingHigh) {
+                    return@"Your amount of sleep has been unusually high for the past 5 nights. Consider contacting your doctor.";
+                } else if (trendingLow) {
+                    return@"Your amount of sleep has been unusually low for the past 5 nights. Consider contacting your doctor.";
+                }
+            }
+            
+            return nil;
+        }
+        case SPSGraphTypeActivity: {
+            // Outside of target range or standard deviation for 5 days
+            NSInteger activityBaseline = 6000; //TODO get this from somewhere
+            NSInteger basePlusMinus = 1500; //TODO choose
+            float averageActivity = [[self averageOfValues:values ofTypes:type] floatValue];
+            float activityStdDev = 1000; //TODO
+            
+            if ([values count] >= 5) {
+                BOOL badActivity = true;
+                BOOL trendingLow = true;
+                for (int day = 0; day < 5; ++day) {
+                    NSInteger activityForDay = [[values objectAtIndex:day] floatValue];
+                    if (activityForDay >= activityBaseline - basePlusMinus) {
+                        badActivity = false;
+                    } else if (activityForDay >= averageActivity - activityStdDev) {
+                        trendingLow = false;
+                    }
+                }
+                if (badActivity) {
+                    return @"Your activity has been too low for the past 5 days, which may be a sign of decreasing health. Contact your doctor.";
+                } else if (trendingLow) {
+                    return@"Your level of sleep has been unusually low compared to your average for the past 5 days. Consider contacting your doctor.";
+                }
+            }
+            return nil;
+        }
+        case SPSGraphTypeHR: {
+            NSInteger age = 15; //TODO: get age
+            float mostRecentHR = [[values objectAtIndex:0] floatValue];
+            if (mostRecentHR > 220 - age) {
+                return @"Most recent heart rate value is dangerously large. If this is not a mistake, contact your doctor immediately.";
+            } else if (mostRecentHR < 60) {
+                return @"Most recent heart rate value is dangerously small. If this is not a mistake, contact your doctor immediately.";
+            }
+            
+            //5 days of continuous downward/upward trend, other characteristics of person should also effect that
+            // TODO Check against trends here
+            
+            return nil;
+        }
+        default:
+            return nil;
+    }
 }
 
 @end
