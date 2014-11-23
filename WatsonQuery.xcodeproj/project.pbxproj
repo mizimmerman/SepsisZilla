@@ -22,6 +22,7 @@
 		890B6A9019EEE380007E839F /* WatsonQueryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 890B6A8F19EEE380007E839F /* WatsonQueryTests.m */; };
 		8925888A19F9F9D200AEA7BE /* UIColor+SPSColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925888919F9F9D200AEA7BE /* UIColor+SPSColors.m */; };
 		893A799819FC8CE40070D46E /* UPPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893A799719FC8CE40070D46E /* UPPlatform.framework */; };
+		89514EBA1A22A18A00994254 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89514EB91A22A18A00994254 /* HealthKit.framework */; };
 		89698E051A1A6A0A00CE8FFB /* BEMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 89698DF21A1A6A0A00CE8FFB /* BEMCircle.m */; };
 		89698E061A1A6A0A00CE8FFB /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 89698DF41A1A6A0A00CE8FFB /* BEMLine.m */; };
 		89698E071A1A6A0A00CE8FFB /* BEMSimpleLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89698DF61A1A6A0A00CE8FFB /* BEMSimpleLineGraphView.m */; };
@@ -81,6 +82,8 @@
 		8925888819F9F9D200AEA7BE /* UIColor+SPSColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SPSColors.h"; sourceTree = "<group>"; };
 		8925888919F9F9D200AEA7BE /* UIColor+SPSColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SPSColors.m"; sourceTree = "<group>"; };
 		893A799719FC8CE40070D46E /* UPPlatform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UPPlatform.framework; path = UPPlatformSDK/UPPlatform.framework; sourceTree = "<group>"; };
+		89514EB81A22A18A00994254 /* WatsonQuery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WatsonQuery.entitlements; sourceTree = "<group>"; };
+		89514EB91A22A18A00994254 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		89698DF11A1A6A0A00CE8FFB /* BEMCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCircle.h; sourceTree = "<group>"; };
 		89698DF21A1A6A0A00CE8FFB /* BEMCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCircle.m; sourceTree = "<group>"; };
 		89698DF31A1A6A0A00CE8FFB /* BEMLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMLine.h; sourceTree = "<group>"; };
@@ -123,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89514EBA1A22A18A00994254 /* HealthKit.framework in Frameworks */,
 				89A842111A1D909600821CDB /* CoreData.framework in Frameworks */,
 				893A799819FC8CE40070D46E /* UPPlatform.framework in Frameworks */,
 			);
@@ -159,6 +163,7 @@
 		890B6A6719EEE380007E839F = {
 			isa = PBXGroup;
 			children = (
+				89514EB91A22A18A00994254 /* HealthKit.framework */,
 				89A842101A1D909600821CDB /* CoreData.framework */,
 				893A799719FC8CE40070D46E /* UPPlatform.framework */,
 				890B6A7219EEE380007E839F /* WatsonQuery */,
@@ -179,6 +184,7 @@
 		890B6A7219EEE380007E839F /* WatsonQuery */ = {
 			isa = PBXGroup;
 			children = (
+				89514EB81A22A18A00994254 /* WatsonQuery.entitlements */,
 				890B6A7719EEE380007E839F /* AppDelegate.h */,
 				890B6A7819EEE380007E839F /* AppDelegate.m */,
 				8906C03C19F5833000291F64 /* TabViewController.h */,
@@ -361,6 +367,11 @@
 					890B6A6F19EEE380007E839F = {
 						CreatedOnToolsVersion = 6.0.1;
 						DevelopmentTeam = QAZG2BYMD2;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 					890B6A8819EEE380007E839F = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -553,6 +564,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = WatsonQuery/WatsonQuery.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -576,6 +588,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = WatsonQuery/WatsonQuery.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (

@@ -62,9 +62,8 @@
     // Dismiss the view controller
     [self dismissViewControllerAnimated:YES completion:nil];
     
-    
-   
-    
+    NSError *error;
+    [[SPSNotificationManager data].fetchedResultsController performFetch:&error];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

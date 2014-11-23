@@ -15,21 +15,22 @@
 @interface TabViewController ()
 
 @property (nonatomic) SPSWatsonViewController *mainVC;
-//@property (nonatomic) GraphViewController *graphVC;
 @property (nonatomic) SPSNotificationViewController *notifVC;
 @property (nonatomic) SPSTrendViewController *trendVC;
 
 @end
 
+
 @implementation TabViewController
 
 - (void)loadView {
     [super loadView];
-    self.mainVC = [SPSWatsonViewController new];
-//    self.graphVC = [GraphViewController new];
+    
     self.notifVC = [SPSNotificationViewController new];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:self.notifVC];
+    self.mainVC = [SPSWatsonViewController new];
     self.trendVC = [SPSTrendViewController new];
-    [self setViewControllers:@[self.mainVC, self.trendVC, self.notifVC]];
+    [self setViewControllers:@[self.mainVC, self.trendVC, nav]];
    
     
 }
