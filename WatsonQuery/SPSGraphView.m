@@ -26,7 +26,7 @@
         [self.graph setDataSource:self];
         [self.graph setDelegate:self];
         
-        [self.graph setColorLine:[UIColor whiteColor]];
+        [self.graph setColorLine:[UIColor colorWithRed:(40/255.0) green:(179/255.0) blue:(230/255.0) alpha:1]];
         [self.graph setEnableBezierCurve:YES];
         [self.graph setEnablePopUpReport:YES];
         [self.graph setEnablePopUpReport:YES];
