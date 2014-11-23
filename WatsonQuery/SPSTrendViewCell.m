@@ -23,22 +23,27 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self setBackgroundColor:[UIColor whiteColor]];
         
-        self.headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 20, 200, 100)];
+        UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width,self.frame.size.height)];
+        UIImage *image = [UIImage imageNamed:@"bluefadetowhite"];
+        [backgroundImage setImage:image];
+        [self addSubview:backgroundImage];
+        //[self setBackgroundColor:[UIColor colorWithRed:(40/255.0) green:(179/255.0) blue:(230/255.0) alpha:1]];
+        
+        self.headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 0, 200, 100)];
         [self.headerLabel setText:@"Sleep Cycles"];
         [self.headerLabel setTextAlignment:NSTextAlignmentCenter];
-        [self.headerLabel setTextColor:[UIColor darkGrayColor]];
+        [self.headerLabel setTextColor:[UIColor blackColor]];
         [self addSubview:self.headerLabel];
         
-        self.graphView = [[SPSGraphView alloc] initWithFrame:CGRectMake(50, 120, 200, 150)];
+        self.graphView = [[SPSGraphView alloc] initWithFrame:CGRectMake(30, 80, 290, 200)];
 //        [self.graphView setType:SPSGraphTypeHR];
         [self addSubview:self.graphView];
         
-        self.summaryLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 290, 200, 200)];
+        self.summaryLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 200, 290, 400)];
         [self.summaryLabel setText:@"Your sleep cycles have changed by..."];
-        [self.summaryLabel setTextAlignment:NSTextAlignmentCenter];
-        [self.summaryLabel setTextColor:[UIColor darkGrayColor]];
+        [self.summaryLabel setTextAlignment:NSTextAlignmentLeft];
+        [self.summaryLabel setTextColor:[UIColor blackColor]];
         [self.summaryLabel setNumberOfLines:10];
         [self addSubview:self.summaryLabel];        
     }

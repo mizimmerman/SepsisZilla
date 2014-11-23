@@ -125,9 +125,9 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
     // Set Color Values
     _colorXaxisLabel = [UIColor blackColor];
     _colorYaxisLabel = [UIColor blackColor];
-    _colorTop = [UIColor colorWithRed:0 green:122.0/255.0 blue:255/255 alpha:1];
-    _colorLine = [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1];
-    _colorBottom = [UIColor colorWithRed:0 green:122.0/255.0 blue:255/255 alpha:1];
+    _colorTop = [UIColor colorWithRed:255/255.0 green:255.0/255.0 blue:255/255 alpha:1];
+    _colorLine = [UIColor colorWithRed:0/255.0 green:122.0/255.0 blue:255.0/255.0 alpha:1];
+    _colorBottom = [UIColor colorWithRed:255/255.0 green:255.0/255.0 blue:255/255 alpha:1];
     _colorPoint = [UIColor whiteColor];
     _colorTouchInputLine = [UIColor grayColor];
     _colorBackgroundPopUplabel = [UIColor whiteColor];
@@ -152,7 +152,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
     _enablePopUpReport = NO;
     _enableBezierCurve = NO;
     _enableXAxisLabel = YES;
-    _enableYAxisLabel = NO;
+    _enableYAxisLabel = YES;
     _YAxisLabelXOffset = 0;
     _autoScaleYAxis = YES;
     _alwaysDisplayDots = NO;

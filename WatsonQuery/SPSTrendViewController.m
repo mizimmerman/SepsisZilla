@@ -11,6 +11,8 @@
 #import "SPSTrendLayout.h"
 #import "SPSTrendViewCell.h"
 #import "SPSGraphDataSource.h"
+#import "UIColor+SPSColors.h"
+
 
 @interface SPSTrendViewController () <UICollectionViewDataSource, UICollectionViewDelegate, SPSGraphDataSource>
 
@@ -43,7 +45,7 @@
     [self.trendsCV setDelegate:self];
     [self.trendsCV setDataSource:self];
     [self.trendsCV registerClass:[SPSTrendViewCell class] forCellWithReuseIdentifier:@"Cell"];
-    [self.trendsCV setBackgroundColor:[UIColor whiteColor]];
+    [self.trendsCV setBackgroundColor:[UIColor blackColor]];//[UIColor colorWithRed:(40/255.0) green:(179/255.0) blue:(230/255.0) alpha:1]];
     [self.trendsCV setContentOffset:CGPointMake(-20, 0)];
     [self.view addSubview:self.trendsCV];
 }
