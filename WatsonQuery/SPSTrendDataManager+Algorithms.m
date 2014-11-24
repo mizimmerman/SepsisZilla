@@ -129,7 +129,7 @@
 -(NSString *)shouldSendNotificationForValues:(NSArray *)values ofTypes:(Class)type forTrendType:(SPSGraphType) trendType
 {
     // Get age from HK for max heart rate calculation and recommended sleep numbers
-    NSInteger age = 22; //Filler
+    NSInteger userAge = 22; //Filler
     /* //Uncomment once Healthkit is available.
     NSInteger age;
     NSError *error;

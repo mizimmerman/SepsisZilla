@@ -8,6 +8,7 @@
 
 #import "SPSNotification+Helpers.h"
 #import "SPSCoreDataHelper.h"
+#import "SPSNotificationViewController.h"
 
 @implementation SPSNotification (Helpers)
 
@@ -16,6 +17,24 @@
     SPSNotification *noty = [NSEntityDescription insertNewObjectForEntityForName:@"SPSNotification" inManagedObjectContext:[SPSCoreDataHelper data].context];
     noty.text = text;
     [[SPSCoreDataHelper data] saveContext];
+    // Schedule the notification
+    
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    
+    NSDate *today = [NSDate date];
+    localNotification.fireDate = today;
+    
+    localNotification.alertBody = text;
+    localNotification.alertAction = text;
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    
+    // Request to reload table view data
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadData" object:self];
+    
+    // Dismiss the view controller
 }
 
 
