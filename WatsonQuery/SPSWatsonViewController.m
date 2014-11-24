@@ -117,7 +117,7 @@
     [self.responseTextView setFrame:CGRectMake(30, 120, self.view.frame.size.width-60, self.view.frame.size.width-60)];
     //    [self.responseTextView setFrame:self.backgroundImageView.frame];
     [self.responseTextView setTextColor:[UIColor blackColor]];
-    self.responseTextView.backgroundColor = [UIColor yellowColor];
+    self.responseTextView.backgroundColor = [UIColor clearColor];
     self.responseTextView.font = [UIFont systemFontOfSize:22];
     [self.responseTextView setText:@""];
 //    [self.responseTextView.layer setMasksToBounds:YES];

@@ -42,8 +42,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    
     
     NSError *error;
     [[SPSNotificationManager data].fetchedResultsController performFetch:&error];    
@@ -66,6 +64,11 @@
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
 }
 
 @end
