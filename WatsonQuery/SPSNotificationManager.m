@@ -32,6 +32,8 @@
     if (_fetchedResultsController != nil) {
         return _fetchedResultsController;
     }
+    
+    
     [SPSNotification insertMockNotificationWithText:@"hey ur fuckin septic!!!!!"];
     [SPSNotification insertMockNotificationWithText:@"hey ur fuckin septic!!!!!"];
     [SPSNotification insertMockNotificationWithText:@"hey ur fuckin septic!!!!!"];

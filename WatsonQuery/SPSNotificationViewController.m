@@ -42,25 +42,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Schedule the notification
-    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-  
-    NSDate *today = [NSDate date];
-    localNotification.fireDate = today;
-    
-    
-    localNotification.alertBody = @"Show me the Noty";
-    localNotification.alertAction = @"Show me the Noty";
-    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
-    
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-    
-    // Request to reload table view data
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadData" object:self];
-    
-    // Dismiss the view controller
-    [self dismissViewControllerAnimated:YES completion:nil];
+
     
     
     NSError *error;
