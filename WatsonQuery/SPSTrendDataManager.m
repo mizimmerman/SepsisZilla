@@ -8,12 +8,14 @@
 
 #import "SPSTrendDataManager.h"
 #import "SPSTrendDataManager+Algorithms.h"
+@import HealthKit;
 
 @interface SPSTrendDataManager()
 
 @property (nonatomic) NSArray *sleeps;
 @property (nonatomic) NSArray *activities;
 @property (nonatomic) NSArray *heartRates;
+@property (nonatomic) HKHealthStore *healthStore;
 
 @end
 
@@ -33,6 +35,7 @@
 {
     self = [super init];
     if (self) {
+        
         self.sleeps = @[@4, @5, @6, @8, @4, @9, @6, @6, @9, @9, @9, @9, @8, @3, @3, @3, @3];
         self.activities = @[@9000, @300, @4800, @8500, @3000, @8000, @1000, @9000, @9000, @10000, @5000, @12000];
         self.heartRates = @[@60, @80, @60, @80, @90, @90, @60, @60, @90, @90, @95, @80, @85];
