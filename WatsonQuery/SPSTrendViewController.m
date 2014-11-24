@@ -83,9 +83,9 @@
 {
     switch (type) {
         case SPSGraphTypeActivity:
-            return [[SPSTrendDataManager data] activityCount];
+            return 7;
         case SPSGraphTypeSleep:
-            return [[SPSTrendDataManager data] sleepCount];
+            return 7;
         case SPSGraphTypeHR:
             return [[SPSTrendDataManager data] heartRateCount];
         default:

@@ -26,7 +26,7 @@
         [self.graph setDataSource:self];
         [self.graph setDelegate:self];
         
-        [self.graph setColorLine:[UIColor colorWithRed:(40/255.0) green:(179/255.0) blue:(230/255.0) alpha:1]];
+        [self.graph setColorLine:[UIColor blackColor]];//colorWithRed:(40/255.0) green:(179/255.0) blue:(230/255.0) alpha:1]];
         [self.graph setEnableBezierCurve:YES];
         [self.graph setEnablePopUpReport:YES];
         [self.graph setEnablePopUpReport:YES];
@@ -45,7 +45,7 @@
 
 -(NSInteger)numberOfGapsBetweenLabelsOnLineGraph:(BEMSimpleLineGraphView *)graph
 {
-    return 2;
+    return 0;
 }
 
 -(BOOL)lineGraph:(BEMSimpleLineGraphView *)graph alwaysDisplayPopUpAtIndex:(CGFloat)index
@@ -75,6 +75,42 @@
         default:
             return @"";
     }
+}
+
+- (NSString *)lineGraph:(BEMSimpleLineGraphView *)graph labelOnXAxisForIndex:(NSInteger)index {
+    NSString *label;
+    switch (index) {
+        case 0:
+            label = @"Mon";
+            break;
+        case 1:
+            label = @"Tue";
+            break;
+        case 2:
+            label = @"Wed";
+            break;
+        case 3:
+            label = @"Thu";
+            break;
+        case 4:
+            label = @"Fri";
+            break;
+        case 5:
+            label = @"Sat";
+            break;
+        case 6:
+            label = @"Sun";
+            break;
+            
+        default:
+            label = @"";
+            break;
+    }
+    return label;
+}
+
+- (NSInteger)numberOfYAxisLabelsOnLineGraph:(BEMSimpleLineGraphView *)graph {
+    return 6;
 }
 
 @end

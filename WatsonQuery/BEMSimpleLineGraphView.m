@@ -125,17 +125,17 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
     // Set Color Values
     _colorXaxisLabel = [UIColor blackColor];
     _colorYaxisLabel = [UIColor blackColor];
-    _colorTop = [UIColor colorWithRed:255/255.0 green:255.0/255.0 blue:255/255 alpha:1];
+    _colorTop = [UIColor colorWithRed:236/255.0 green:236.0/255.0 blue:236/255 alpha:0];
     _colorLine = [UIColor colorWithRed:0/255.0 green:122.0/255.0 blue:255.0/255.0 alpha:1];
-    _colorBottom = [UIColor colorWithRed:255/255.0 green:255.0/255.0 blue:255/255 alpha:1];
-    _colorPoint = [UIColor whiteColor];
+    _colorBottom = [UIColor colorWithRed:255/255.0 green:255.0/255.0 blue:255/255 alpha:0];
+    _colorPoint = [UIColor blackColor];
     _colorTouchInputLine = [UIColor grayColor];
     _colorBackgroundPopUplabel = [UIColor whiteColor];
     _alphaTouchInputLine = 0.2;
     _widthTouchInputLine = 1.0;
-    _colorBackgroundXaxis = nil;
+    _colorBackgroundXaxis = [UIColor clearColor];
     _alphaBackgroundXaxis = 1.0;
-    _colorBackgroundYaxis = nil;
+    _colorBackgroundYaxis = [UIColor clearColor];
     _alphaBackgroundYaxis = 1.0;
     
     // Set Alpha Values
@@ -155,7 +155,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
     _enableYAxisLabel = YES;
     _YAxisLabelXOffset = 0;
     _autoScaleYAxis = YES;
-    _alwaysDisplayDots = NO;
+    _alwaysDisplayDots = YES;
     _alwaysDisplayPopUpLabels = NO;
     
     // Initialize the various arrays
@@ -410,7 +410,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
                     } else circleDot.alpha = 0.7;
                 } else {
                     [UIView animateWithDuration:(float)self.animationGraphEntranceTime/numberOfPoints delay:(float)i*((float)self.animationGraphEntranceTime/numberOfPoints) options:UIViewAnimationOptionCurveLinear animations:^{
-                        circleDot.alpha = 0.7;
+                        circleDot.alpha = 1;
                     } completion:^(BOOL finished) {
                         if (self.alwaysDisplayDots == NO) {
                             [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
@@ -679,7 +679,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
             labelYAxis.textColor = self.colorYaxisLabel;
             labelYAxis.backgroundColor = [UIColor clearColor];
             labelYAxis.tag = LabelYAxisTag2000;
-            labelYAxis.center = CGPointMake(self.YAxisLabelXOffset/2, yAxisPosition);
+            labelYAxis.center = CGPointMake(self.YAxisLabelXOffset/2-15, yAxisPosition);
             [self addSubview:labelYAxis];
             [yAxisLabels addObject:labelYAxis];
             
