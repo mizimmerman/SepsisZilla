@@ -125,14 +125,41 @@
 }
 
 // Algorithms for determining whether to send a health alert
-// TODO: Choose baseline for sleep and activity (or customize based on gender, age, etc), determine how to calculate trends for heartrate assuming multiple values per day.
+// TODO: Finalize HK integration for age (send as function arg if necessary) and figure out how to do HR
 -(NSString *)shouldSendNotificationForValues:(NSArray *)values ofTypes:(Class)type forTrendType:(SPSGraphType) trendType
 {
+    // Get age from HK for max heart rate calculation and recommended sleep numbers
+    NSInteger age = 22; //Filler
+    /* //Uncomment once Healthkit is available.
+    NSInteger age;
+    NSError *error;
+    NSDate *dateOfBirth = nil;
+    if ([HKHealthStore isHealthDataAvailable]) {
+        dateOfBirth = [self.healthStore dateOfBirthWithError:&error]; //TODO where is the healthStore
+    }
+    
+    if (!dateOfBirth) {
+        NSLog(@"Either an error occured fetching the user's age information or none has been stored yet. Setting age to 15.");
+        age = 15;
+    } else {
+        // Compute the age (in years) of the user.
+        NSDate *now = [NSDate date];
+        NSDateComponents *ageComponents = [[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:dateOfBirth toDate:now options:NSCalendarWrapComponents];
+        age = [ageComponents year];
+    }
+    */
     switch(trendType) {
         case SPSGraphTypeSleep: {
-            // Outside of target range or standard deviation for 5 days
-            NSInteger sleepBaseline = 8; //TODO choose
-            NSInteger basePlusMinus = 2; //TODO choose
+            // Outside of target range for age or individual standard deviation for 5 days
+            NSInteger sleepBaseline;
+            if (userAge <= 12) {
+                sleepBaseline = 10;
+            } else if (userAge <= 18) {
+                sleepBaseline = 9;
+            } else {
+                sleepBaseline = 8;
+            }
+            NSInteger basePlusMinus = 2;
             NSNumber *averageSleep = [self averageOfValues:values ofTypes:type];
             float sleepStdDev = [[self standardDeviationOfValues:values ofTypes:type] floatValue];
             
@@ -163,8 +190,8 @@
         }
         case SPSGraphTypeActivity: {
             // Outside of target range or standard deviation for 5 days
-            NSInteger activityBaseline = 6000; //TODO choose
-            NSInteger basePlusMinus = 1500; //TODO choose
+            NSInteger activityBaseline = 6000;
+            NSInteger basePlusMinus = 1500;
             float averageActivity = [[self averageOfValues:values ofTypes:type] floatValue];
             float activityStdDev = [[self standardDeviationOfValues:values ofTypes:type] floatValue];
             
@@ -188,9 +215,8 @@
             return nil;
         }
         case SPSGraphTypeHR: {
-            NSInteger age = 22; //TODO: get age
             float mostRecentHR = [[values objectAtIndex:0] floatValue];
-            if (mostRecentHR > 220 - age) {
+            if (mostRecentHR > 220 - userAge) {
                 return @"Most recent heart rate value is dangerously large. If this is not a mistake, contact your doctor immediately.";
             } else if (mostRecentHR < 60) {
                 return @"Most recent heart rate value is dangerously small. If this is not a mistake, contact your doctor immediately.";
