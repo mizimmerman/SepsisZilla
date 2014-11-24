@@ -43,10 +43,6 @@
 - (void) viewDidLoad{
     [super viewDidLoad];
 
-    
-    
-
-
     UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height)];
     UIImage *image = [UIImage imageNamed:@"background"];
     [backgroundImage setImage:image];
@@ -121,13 +117,14 @@
 //
     self.responseTextView = [UITextView new];
     self.responseTextView.contentInset = UIEdgeInsetsMake(5, 10, 5, 10);
-    [self.responseTextView setFrame:CGRectMake(50, 200, self.view.frame.size.width-100, self.view.frame.size.height/3.5)];
+//    [self.responseTextView setFrame:CGRectMake(50, 200, self.view.frame.size.width-100, self.view.frame.size.height/3.5)];
+    [self.responseTextView setFrame:self.backgroundImageView.frame];
     [self.responseTextView setTextColor:[UIColor blackColor]];
     self.responseTextView.backgroundColor = [UIColor clearColor];
     self.responseTextView.font = [UIFont systemFontOfSize:22];
     [self.responseTextView setText:@""];
     [self.responseTextView.layer setMasksToBounds:YES];
-    [self.responseTextView.layer setCornerRadius:10];
+    [self.responseTextView.layer setCornerRadius:self.responseTextView.frame.size.height/2];
 //
     [self.view addSubview:self.responseTextView];
 
