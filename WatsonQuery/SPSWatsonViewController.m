@@ -42,16 +42,12 @@
 
 - (void) viewDidLoad{
     [super viewDidLoad];
-
     
-    
-
-
     UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height)];
     UIImage *image = [UIImage imageNamed:@"background"];
     [backgroundImage setImage:image];
     [self.view addSubview:backgroundImage];
-
+    
     self.backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height)];
     self.backgroundImageView.animationImages = [[NSArray alloc] initWithObjects:
                                                 [UIImage imageNamed:@"CB00001"],
@@ -115,24 +111,25 @@
                                                 [UIImage imageNamed:@"CB00060"],nil];
     self.backgroundImageView.animationDuration = 2.5f;
     self.backgroundImageView.animationRepeatCount = 1;
-   
-
     [self.view addSubview:self.backgroundImageView];
-//
     self.responseTextView = [UITextView new];
     self.responseTextView.contentInset = UIEdgeInsetsMake(5, 10, 5, 10);
-    [self.responseTextView setFrame:CGRectMake(50, 200, self.view.frame.size.width-100, self.view.frame.size.height/3.5)];
+    [self.responseTextView setFrame:CGRectMake(30, 120, self.view.frame.size.width-60, self.view.frame.size.width-60)];
+    //    [self.responseTextView setFrame:self.backgroundImageView.frame];
     [self.responseTextView setTextColor:[UIColor blackColor]];
-    self.responseTextView.backgroundColor = [UIColor clearColor];
+    self.responseTextView.backgroundColor = [UIColor yellowColor];
     self.responseTextView.font = [UIFont systemFontOfSize:22];
     [self.responseTextView setText:@""];
-    [self.responseTextView.layer setMasksToBounds:YES];
-    [self.responseTextView.layer setCornerRadius:10];
-//
+//    [self.responseTextView.layer setMasksToBounds:YES];
+    CAShapeLayer *layer = [CAShapeLayer layer];
+    layer.path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0,0, self.view.frame.size.width-60, self.view.frame.size.width-60) cornerRadius:(self.view.frame.size.width-60)/2].CGPath;
+    [self.responseTextView.layer setMask:layer];
+    [self.responseTextView setUserInteractionEnabled:NO];
+    [self.responseTextView.layer setCornerRadius:self.responseTextView.frame.size.height/2];
     [self.view addSubview:self.responseTextView];
-
+    
     self.questionField = [UITextView new];
-    [self.questionField setFrame:CGRectMake(10, 475, self.view.frame.size.width-20, self.view.frame.size.height/8)];
+    [self.questionField setFrame:CGRectMake(10, 400, self.view.frame.size.width-20, self.view.frame.size.height/8)];
     [self.questionField.layer setMasksToBounds:YES];
     [self.questionField.layer setCornerRadius:10];
     [self.questionField setFont:[UIFont systemFontOfSize:25]];
@@ -140,30 +137,22 @@
     [self.questionField setDelegate:self];
     
     self.askButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.askButton.frame = CGRectMake(60, 565, 261, 47); // position in the parent view and set the size of the button
+    self.askButton.frame = CGRectMake(self.view.frame.size.width / 4, 30, self.view.frame.size.width / 2, 47); // position in the parent view and set the size of the button
     [self.askButton setTitle:@"Ask Watson!" forState:UIControlStateNormal];
     [self.askButton setFont:[UIFont systemFontOfSize:20]];
     [self.askButton addTarget:self action:@selector(tappedAsk) forControlEvents:UIControlEventTouchUpInside];
     [self.askButton setBackgroundImage:[UIImage imageNamed:@"whiteButton.png"]
-                        forState:UIControlStateNormal];
+                              forState:UIControlStateNormal];
     [self.view addSubview:self.askButton];
-
+    
     
     self.watsonLogo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"watson_logo"]];
-    [self.watsonLogo setFrame:CGRectMake(10, 10, 125*1.12, 125)];
+    [self.watsonLogo setFrame:CGRectMake(self.view.frame.size.width *5/8, self.view.frame.size.height - 225, 125*1.12, 125)];
     [self.watsonLogo.layer setMasksToBounds:YES];
     [self.watsonLogo.layer setCornerRadius:10];
     [self.view addSubview:self.watsonLogo];
-
+    
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-//
-
 
 - (void)tappedAsk {
     [self.backgroundImageView startAnimating];
@@ -191,8 +180,18 @@
 
 -(BOOL)textViewShouldEndEditing:(UITextView *)textView {
     [textView resignFirstResponder];
+    [UIView animateWithDuration:1 animations:^{
+        textView.center = CGPointMake(textView.center.x, textView.center.y + 300);
+    }];
+    
     [self tappedAsk];
     return true;
+}
+
+-(void)textViewDidBeginEditing:(UITextView *)textView {
+    [UIView animateWithDuration:1 animations:^{
+        textView.center = CGPointMake(textView.center.x, textView.center.y - 300);
+    }];
 }
 
 //-(void)textViewDidEndEditing:(UITextView *)textView {
@@ -200,27 +199,4 @@
 //}
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

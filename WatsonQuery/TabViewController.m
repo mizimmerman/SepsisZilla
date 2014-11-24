@@ -29,7 +29,8 @@
 //    self.graphVC = [GraphViewController new];
     self.notifVC = [SPSNotificationViewController new];
     self.trendVC = [SPSTrendViewController new];
-    [self setViewControllers:@[self.mainVC, self.trendVC, self.notifVC]];
+    UINavigationController *notyNav = [[UINavigationController alloc] initWithRootViewController:self.notifVC];
+    [self setViewControllers:@[self.mainVC, self.trendVC, notyNav]];
    
     
 }

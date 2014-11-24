@@ -40,14 +40,20 @@
 -(void)loadTrendsCV
 {
     self.layout = [SPSTrendLayout new];
-    [self.layout setItemSize:CGSizeMake(self.view.frame.size.width-20, self.view.frame.size.height-50)];
+    [self.layout setItemSize:CGSizeMake(self.view.frame.size.width, self.view.frame.size.height)];
     self.trendsCV = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:self.layout];
     [self.trendsCV setDelegate:self];
     [self.trendsCV setDataSource:self];
     [self.trendsCV registerClass:[SPSTrendViewCell class] forCellWithReuseIdentifier:@"Cell"];
     [self.trendsCV setBackgroundColor:[UIColor blackColor]];//[UIColor colorWithRed:(40/255.0) green:(179/255.0) blue:(230/255.0) alpha:1]];
-    [self.trendsCV setContentOffset:CGPointMake(-20, 0)];
+    [self.trendsCV setContentOffset:CGPointMake(0, 0)];
     [self.view addSubview:self.trendsCV];
+    
+    UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    UIImage *image = [UIImage imageNamed:@"bluefadetowhite"];
+    [backgroundImage setImage:image];
+    [self.trendsCV setBackgroundView:backgroundImage];
+    
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
