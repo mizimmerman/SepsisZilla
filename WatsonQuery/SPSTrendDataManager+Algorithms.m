@@ -125,8 +125,9 @@
 }
 
 // Algorithms for determining whether to send a health alert
-// TODO: Finalize HK integration for age (send as function arg if necessary) and figure out how to do HR
--(NSString *)shouldSendNotificationForValues:(NSArray *)values ofTypes:(Class)type forTrendType:(SPSGraphType) trendType
+// Currently checks values in the sleeps, steps, and heartRates arrays
+// TODO: HK and figure out how to do HR
+-(NSMutableArray *)shouldSendHealthNotifications
 {
     // Get age from HK for max heart rate calculation and recommended sleep numbers
     NSInteger userAge = 22; //Filler
@@ -148,88 +149,89 @@
         age = [ageComponents year];
     }
     */
-    switch(trendType) {
-        case SPSGraphTypeSleep: {
-            // Outside of target range for age or individual standard deviation for 5 days
-            NSInteger sleepBaseline;
-            if (userAge <= 12) {
-                sleepBaseline = 10;
-            } else if (userAge <= 18) {
-                sleepBaseline = 9;
-            } else {
-                sleepBaseline = 8;
-            }
-            NSInteger basePlusMinus = 2;
-            NSNumber *averageSleep = [self averageOfValues:values ofTypes:type];
-            float sleepStdDev = [[self standardDeviationOfValues:values ofTypes:type] floatValue];
-            
-            if (values.count >= 5) {
-                BOOL badSleep = true;
-                BOOL trendingHigh = true;
-                BOOL trendingLow = true;
-                for (int night = 0; night < 5; ++night) {
-                    NSInteger sleepForNight = [[values objectAtIndex:night] floatValue];
-                    if (sleepForNight >= sleepBaseline - basePlusMinus && sleepForNight <= sleepBaseline + basePlusMinus) {
-                        badSleep = false;
-                    } else if (sleepForNight >= [averageSleep floatValue] - sleepStdDev) {
-                        trendingLow = false;
-                    } else if (sleepForNight <= [averageSleep floatValue] + sleepStdDev) {
-                        trendingHigh = false;
-                    }
-                }
-                if (badSleep) {
-                    return @"Your sleep has been dangerously abnormal for the past 5 nights, which may be a sign of decreasing health. Contact your doctor.";
-                } else if (trendingHigh) {
-                    return@"Your amount of sleep has been unusually high for the past 5 nights. Consider contacting your doctor.";
-                } else if (trendingLow) {
-                    return@"Your amount of sleep has been unusually low for the past 5 nights. Consider contacting your doctor.";
-                }
-            }
-            
-            return nil;
-        }
-        case SPSGraphTypeActivity: {
-            // Outside of target range or standard deviation for 5 days
-            NSInteger activityBaseline = 6000;
-            NSInteger basePlusMinus = 1500;
-            float averageActivity = [[self averageOfValues:values ofTypes:type] floatValue];
-            float activityStdDev = [[self standardDeviationOfValues:values ofTypes:type] floatValue];
-            
-            if (values.count >= 5) {
-                BOOL badActivity = true;
-                BOOL trendingLow = true;
-                for (int day = 0; day < 5; ++day) {
-                    NSInteger activityForDay = [[values objectAtIndex:day] floatValue];
-                    if (activityForDay >= activityBaseline - basePlusMinus) {
-                        badActivity = false;
-                    } else if (activityForDay >= averageActivity - activityStdDev) {
-                        trendingLow = false;
-                    }
-                }
-                if (badActivity) {
-                    return @"Your activity has been too low for the past 5 days, which may be a sign of decreasing health. Contact your doctor.";
-                } else if (trendingLow) {
-                    return@"Your level of activity has been unusually low compared to your average for the past 5 days. Consider contacting your doctor.";
-                }
-            }
-            return nil;
-        }
-        case SPSGraphTypeHR: {
-            float mostRecentHR = [[values objectAtIndex:0] floatValue];
-            if (mostRecentHR > 220 - userAge) {
-                return @"Most recent heart rate value is dangerously large. If this is not a mistake, contact your doctor immediately.";
-            } else if (mostRecentHR < 60) {
-                return @"Most recent heart rate value is dangerously small. If this is not a mistake, contact your doctor immediately.";
-            }
-            
-            //5 days of continuous downward/upward trend, other characteristics of person should also effect that
-            // TODO Check against trends here
-            
-            return nil;
-        }
-        default:
-            return nil;
+
+    NSArray *values;
+    NSMutableArray *notificationStrings = [NSMutableArray array];
+    // case SPSGraphTypeSleep:
+    // Outside of target range for age or individual standard deviation for 5 days
+    NSInteger sleepBaseline;
+    values = [self sleeps];
+    if (userAge <= 12) {
+        sleepBaseline = 10;
+    } else if (userAge <= 18) {
+        sleepBaseline = 9;
+    } else {
+        sleepBaseline = 8;
     }
+    NSInteger basePlusMinus = 2;
+    NSNumber *averageSleep = [self averageOfValues:values ofTypes:type];
+    float sleepStdDev = [[self standardDeviationOfValues:values ofTypes:type] floatValue];
+    
+    if (values.count >= 5) {
+        BOOL badSleep = true;
+        BOOL trendingHigh = true;
+        BOOL trendingLow = true;
+        for (int night = 0; night < 5; ++night) {
+            NSInteger sleepForNight = [[values objectAtIndex:night] floatValue];
+            if (sleepForNight >= sleepBaseline - basePlusMinus && sleepForNight <= sleepBaseline + basePlusMinus) {
+                badSleep = false;
+            } else if (sleepForNight >= [averageSleep floatValue] - sleepStdDev) {
+                trendingLow = false;
+            } else if (sleepForNight <= [averageSleep floatValue] + sleepStdDev) {
+                trendingHigh = false;
+            }
+        }
+        if (badSleep) {
+            [notificationStrings insertObject: @"Your sleep has been dangerously abnormal for the past 5 nights, which may be a sign of decreasing health. Contact your doctor."];
+        } else if (trendingHigh) {
+            [notificationStrings insertObject: @"Your amount of sleep has been unusually high for the past 5 nights. Consider contacting your doctor."];
+        } else if (trendingLow) {
+            [notificationStrings insertObject: @"Your amount of sleep has been unusually low for the past 5 nights. Consider contacting your doctor."];
+        }
+    }
+            
+
+    // case SPSGraphTypeActivity:
+    values = [self steps];
+    // Outside of target range or standard deviation for 5 days
+    NSInteger activityBaseline = 6000;
+    NSInteger basePlusMinus = 1500;
+    float averageActivity = [[self averageOfValues:values ofTypes:type] floatValue];
+    float activityStdDev = [[self standardDeviationOfValues:values ofTypes:type] floatValue];
+    
+    if (values.count >= 5) {
+        BOOL badActivity = true;
+        BOOL trendingLow = true;
+        for (int day = 0; day < 5; ++day) {
+            NSInteger activityForDay = [[values objectAtIndex:day] floatValue];
+            if (activityForDay >= activityBaseline - basePlusMinus) {
+                badActivity = false;
+            } else if (activityForDay >= averageActivity - activityStdDev) {
+                trendingLow = false;
+            }
+        }
+        if (badActivity) {
+            [notificationStrings insertObject: @"Your activity has been too low for the past 5 days, which may be a sign of decreasing health. Contact your doctor."];
+        } else if (trendingLow) {
+            [notificationStrings insertObject: @"Your level of activity has been unusually low compared to your average for the past 5 days. Consider contacting your doctor."];
+        }
+    }
+
+
+    // case SPSGraphTypeHR:
+    values = [self heartRates];
+    float mostRecentHR = [[values objectAtIndex:0] floatValue];
+    if (mostRecentHR > 220 - userAge) {
+        [notificationStrings insertObject: @"Most recent heart rate value is dangerously large. If this is not a mistake, contact your doctor immediately."];
+    } else if (mostRecentHR < 60) {
+        [notificationStrings insertObject: @"Most recent heart rate value is dangerously small. If this is not a mistake, contact your doctor immediately."];
+    }
+    
+    //5 days of continuous downward/upward trend, other characteristics of person should also effect that
+    // TODO Check against trends here
+    
+    
+    return notificationStrings;
 }
 
 @end
