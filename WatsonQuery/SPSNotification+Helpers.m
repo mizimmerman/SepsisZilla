@@ -15,6 +15,11 @@
 +(void)insertMockNotificationWithText:(NSString *)text
 {
     SPSNotification *noty = [NSEntityDescription insertNewObjectForEntityForName:@"SPSNotification" inManagedObjectContext:[SPSCoreDataHelper data].context];
+    
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM/dd"];
+    noty.dateText = [formatter stringFromDate:[NSDate date]];
     noty.text = text;
     [[SPSCoreDataHelper data] saveContext];
     // Schedule the notification

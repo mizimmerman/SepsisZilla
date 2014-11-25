@@ -32,11 +32,7 @@
     if (_fetchedResultsController != nil) {
         return _fetchedResultsController;
     }
-    
-    
-    [SPSNotification insertMockNotificationWithText:@"hey ur fuckin septic!!!!!"];
-    [SPSNotification insertMockNotificationWithText:@"hey ur fuckin septic!!!!!"];
-    [SPSNotification insertMockNotificationWithText:@"hey ur fuckin septic!!!!!"];
+
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"SPSNotification" inManagedObjectContext:[SPSCoreDataHelper data].context];
     [fetchRequest setEntity:entity];

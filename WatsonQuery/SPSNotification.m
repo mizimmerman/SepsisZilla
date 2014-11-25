@@ -12,5 +12,6 @@
 @implementation SPSNotification
 
 @dynamic text;
+@dynamic dateText;
 
 @end
