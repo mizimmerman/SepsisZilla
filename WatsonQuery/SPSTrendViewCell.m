@@ -24,10 +24,11 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        self.headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 0, 200, 100)];
+        self.headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 10, 200, 100)];
         [self.headerLabel setText:@"Sleep Cycles"];
         [self.headerLabel setTextAlignment:NSTextAlignmentCenter];
         [self.headerLabel setTextColor:[UIColor blackColor]];
+        [self.headerLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:18]];
         [self addSubview:self.headerLabel];
         
         self.graphView = [[SPSGraphView alloc] initWithFrame:CGRectMake(30, 80, self.frame.size.width-60, 200)];

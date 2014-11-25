@@ -12,9 +12,6 @@
 
 @interface SPSTrendDataManager()
 
-@property (nonatomic) NSArray *sleeps;
-@property (nonatomic) NSArray *activities;
-@property (nonatomic) NSArray *heartRates;
 @property (nonatomic) HKHealthStore *healthStore;
 
 @end

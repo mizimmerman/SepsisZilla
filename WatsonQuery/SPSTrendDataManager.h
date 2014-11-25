@@ -13,7 +13,9 @@
 @interface SPSTrendDataManager : NSObject
 
 +(SPSTrendDataManager *)data;
-
+@property (nonatomic) NSArray *sleeps;
+@property (nonatomic) NSArray *activities;
+@property (nonatomic) NSArray *heartRates;
 -(NSString *)headerForGraph:(SPSGraphType)type;
 -(NSString *)summaryForGraph:(SPSGraphType)type;
 -(CGFloat)activityValueForIndex:(NSInteger)index;

@@ -79,32 +79,38 @@
 
 - (NSString *)lineGraph:(BEMSimpleLineGraphView *)graph labelOnXAxisForIndex:(NSInteger)index {
     NSString *label;
-    switch (index) {
-        case 0:
-            label = @"Mon";
-            break;
-        case 1:
-            label = @"Tue";
-            break;
-        case 2:
-            label = @"Wed";
-            break;
-        case 3:
-            label = @"Thu";
-            break;
-        case 4:
-            label = @"Fri";
-            break;
-        case 5:
-            label = @"Sat";
-            break;
-        case 6:
-            label = @"Sun";
-            break;
+    
+    if (self.type == SPSGraphTypeActivity || self.type == SPSGraphTypeSleep) {
+        switch (index) {
+            case 0:
+                label = @"Mon";
+                break;
+            case 1:
+                label = @"Tue";
+                break;
+            case 2:
+                label = @"Wed";
+                break;
+            case 3:
+                label = @"Thu";
+                break;
+            case 4:
+                label = @"Fri";
+                break;
+            case 5:
+                label = @"Sat";
+                break;
+            case 6:
+                label = @"Sun";
+                break;
             
-        default:
-            label = @"";
-            break;
+            default:
+                label = @"";
+                break;
+        }
+    }
+    else {
+        label = @"";
     }
     return label;
 }
