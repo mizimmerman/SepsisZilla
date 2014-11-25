@@ -38,8 +38,6 @@
     
 }
 
-
-
 - (void) viewDidLoad{
     [super viewDidLoad];
     
@@ -118,18 +116,16 @@
     //    [self.responseTextView setFrame:self.backgroundImageView.frame];
     [self.responseTextView setTextColor:[UIColor blackColor]];
     self.responseTextView.backgroundColor = [UIColor clearColor];
-    self.responseTextView.font = [UIFont systemFontOfSize:22];
+    [self.responseTextView setTextAlignment:NSTextAlignmentCenter];
+    self.responseTextView.font = [UIFont systemFontOfSize:18];
     [self.responseTextView setText:@""];
-//    [self.responseTextView.layer setMasksToBounds:YES];
-    CAShapeLayer *layer = [CAShapeLayer layer];
-    layer.path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0,0, self.view.frame.size.width-60, self.view.frame.size.width-60) cornerRadius:(self.view.frame.size.width-60)/2].CGPath;
-    [self.responseTextView.layer setMask:layer];
-    [self.responseTextView setUserInteractionEnabled:NO];
+    
+//    [self.responseTextView setUserInteractionEnabled:NO];
     [self.responseTextView.layer setCornerRadius:self.responseTextView.frame.size.height/2];
     [self.view addSubview:self.responseTextView];
     
     self.questionField = [UITextView new];
-    [self.questionField setFrame:CGRectMake(10, 400, self.view.frame.size.width-20, self.view.frame.size.height/8)];
+    [self.questionField setFrame:CGRectMake(10, 30, self.view.frame.size.width*3/4-20, self.view.frame.size.height/8)];
     [self.questionField.layer setMasksToBounds:YES];
     [self.questionField.layer setCornerRadius:10];
     [self.questionField setFont:[UIFont systemFontOfSize:25]];
@@ -137,17 +133,16 @@
     [self.questionField setDelegate:self];
     
     self.askButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.askButton.frame = CGRectMake(self.view.frame.size.width / 4, 30, self.view.frame.size.width / 2, 47); // position in the parent view and set the size of the button
+    self.askButton.frame = CGRectMake(self.view.frame.size.width *3/4-5, 40, self.view.frame.size.width / 4, self.view.frame.size.height/8-20); // position in the parent view and set the size of the button
     [self.askButton setTitle:@"Ask Watson!" forState:UIControlStateNormal];
-    [self.askButton setFont:[UIFont systemFontOfSize:20]];
+    [self.askButton setFont:[UIFont systemFontOfSize:15]];
     [self.askButton addTarget:self action:@selector(tappedAsk) forControlEvents:UIControlEventTouchUpInside];
-    [self.askButton setBackgroundImage:[UIImage imageNamed:@"whiteButton.png"]
-                              forState:UIControlStateNormal];
+//    [self.askButton setBackgroundImage:[UIImage imageNamed:@"whiteButton.png"] forState:UIControlStateNormal];
     [self.view addSubview:self.askButton];
     
     
     self.watsonLogo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"watson_logo"]];
-    [self.watsonLogo setFrame:CGRectMake(self.view.frame.size.width *5/8, self.view.frame.size.height - 225, 125*1.12, 125)];
+    [self.watsonLogo setFrame:CGRectMake(self.view.frame.size.width *5/8-20, self.view.frame.size.height - 225, 125*1.12, 125)];
     [self.watsonLogo.layer setMasksToBounds:YES];
     [self.watsonLogo.layer setCornerRadius:10];
     [self.view addSubview:self.watsonLogo];
@@ -180,18 +175,21 @@
 
 -(BOOL)textViewShouldEndEditing:(UITextView *)textView {
     [textView resignFirstResponder];
-    [UIView animateWithDuration:1 animations:^{
-        textView.center = CGPointMake(textView.center.x, textView.center.y + 300);
-    }];
     
     [self tappedAsk];
     return true;
 }
 
 -(void)textViewDidBeginEditing:(UITextView *)textView {
-    [UIView animateWithDuration:1 animations:^{
-        textView.center = CGPointMake(textView.center.x, textView.center.y - 300);
-    }];
+}
+
+-(BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    if ([textView isEqual:self.responseTextView]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    return YES;
 }
 
 //-(void)textViewDidEndEditing:(UITextView *)textView {
