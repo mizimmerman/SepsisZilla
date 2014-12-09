@@ -11,15 +11,18 @@
 #import "SPSWatsonViewController.h"
 #import "WPWatson.h"
 #import "UIColor+SPSColors.h"
+#import "Reachability.h"
 
 @interface SPSWatsonViewController () <UITextViewDelegate>
-
 
 @property (nonatomic, readwrite) UIImageView *backgroundImageView;
 @property (nonatomic) UITextView *responseTextView;
 @property (nonatomic) UIButton *askButton;
 @property (nonatomic) UITextView *questionField;
 @property (nonatomic) UIImageView *watsonLogo;
+@property (nonatomic) UITapGestureRecognizer *tapToDismiss;
+@property (nonatomic) NSMutableArray *previousQuestions;
+@property (nonatomic, getter = isConnected) BOOL connected;
 
 @end
 
@@ -29,172 +32,174 @@
     self = [super init];
     if (self) {
         self.title = @"Main";
+        self.previousQuestions = [NSMutableArray array];
     }
     return self;
 }
 
 - (void) loadView {
     [super loadView];
-    
-}
-
-- (void) viewDidLoad{
-    [super viewDidLoad];
-    
-    UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height)];
-    UIImage *image = [UIImage imageNamed:@"background"];
-    [backgroundImage setImage:image];
-    [self.view addSubview:backgroundImage];
-    
-    self.backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height)];
-    self.backgroundImageView.animationImages = [[NSArray alloc] initWithObjects:
-                                                [UIImage imageNamed:@"CB00001"],
-                                                [UIImage imageNamed:@"CB00003"],
-                                                [UIImage imageNamed:@"CB00004"],
-                                                [UIImage imageNamed:@"CB00005"],
-                                                [UIImage imageNamed:@"CB00006"],
-                                                [UIImage imageNamed:@"CB00007"],
-                                                [UIImage imageNamed:@"CB00008"],
-                                                [UIImage imageNamed:@"CB00009"],
-                                                [UIImage imageNamed:@"CB00010"],
-                                                [UIImage imageNamed:@"CB00011"],
-                                                [UIImage imageNamed:@"CB00012"],
-                                                [UIImage imageNamed:@"CB00013"],
-                                                [UIImage imageNamed:@"CB00014"],
-                                                [UIImage imageNamed:@"CB00015"],
-                                                [UIImage imageNamed:@"CB00016"],
-                                                [UIImage imageNamed:@"CB00017"],
-                                                [UIImage imageNamed:@"CB00018"],
-                                                [UIImage imageNamed:@"CB00019"],
-                                                [UIImage imageNamed:@"CB00020"],
-                                                [UIImage imageNamed:@"CB00021"],
-                                                [UIImage imageNamed:@"CB00022"],
-                                                [UIImage imageNamed:@"CB00023"],
-                                                [UIImage imageNamed:@"CB00024"],
-                                                [UIImage imageNamed:@"CB00025"],
-                                                [UIImage imageNamed:@"CB00026"],
-                                                [UIImage imageNamed:@"CB00027"],
-                                                [UIImage imageNamed:@"CB00028"],
-                                                [UIImage imageNamed:@"CB00029"],
-                                                [UIImage imageNamed:@"CB00030"],
-                                                [UIImage imageNamed:@"CB00031"],
-                                                [UIImage imageNamed:@"CB00032"],
-                                                [UIImage imageNamed:@"CB00033"],
-                                                [UIImage imageNamed:@"CB00034"],
-                                                [UIImage imageNamed:@"CB00035"],
-                                                [UIImage imageNamed:@"CB00036"],
-                                                [UIImage imageNamed:@"CB00037"],
-                                                [UIImage imageNamed:@"CB00038"],
-                                                [UIImage imageNamed:@"CB00039"],
-                                                [UIImage imageNamed:@"CB00040"],
-                                                [UIImage imageNamed:@"CB00041"],
-                                                [UIImage imageNamed:@"CB00042"],
-                                                [UIImage imageNamed:@"CB00043"],
-                                                [UIImage imageNamed:@"CB00044"],
-                                                [UIImage imageNamed:@"CB00045"],
-                                                [UIImage imageNamed:@"CB00046"],
-                                                [UIImage imageNamed:@"CB00047"],
-                                                [UIImage imageNamed:@"CB00048"],
-                                                [UIImage imageNamed:@"CB00049"],
-                                                [UIImage imageNamed:@"CB00050"],
-                                                [UIImage imageNamed:@"CB00051"],
-                                                [UIImage imageNamed:@"CB00052"],
-                                                [UIImage imageNamed:@"CB00053"],
-                                                [UIImage imageNamed:@"CB00054"],
-                                                [UIImage imageNamed:@"CB00055"],
-                                                [UIImage imageNamed:@"CB00056"],
-                                                [UIImage imageNamed:@"CB00057"],
-                                                [UIImage imageNamed:@"CB00058"],
-                                                [UIImage imageNamed:@"CB00059"],
-                                                [UIImage imageNamed:@"CB00060"],nil];
-    self.backgroundImageView.animationDuration = 2.5f;
-    self.backgroundImageView.animationRepeatCount = 1;
-    [self.view addSubview:self.backgroundImageView];
-    self.responseTextView = [UITextView new];
-    self.responseTextView.contentInset = UIEdgeInsetsMake(5, 10, 5, 10);
-    [self.responseTextView setFrame:CGRectMake(30, 120, self.view.frame.size.width-60, self.view.frame.size.width-60)];
-    //    [self.responseTextView setFrame:self.backgroundImageView.frame];
-    [self.responseTextView setTextColor:[UIColor blackColor]];
-    self.responseTextView.backgroundColor = [UIColor clearColor];
-    [self.responseTextView setTextAlignment:NSTextAlignmentCenter];
-    self.responseTextView.font = [UIFont systemFontOfSize:18];
-    [self.responseTextView setText:@""];
-    
-//    [self.responseTextView setUserInteractionEnabled:NO];
-    [self.responseTextView.layer setCornerRadius:self.responseTextView.frame.size.height/2];
-    [self.view addSubview:self.responseTextView];
+    [self.view setBackgroundColor:[UIColor lightGrayColor]];
     
     self.questionField = [UITextView new];
-    [self.questionField setFrame:CGRectMake(10, 30, self.view.frame.size.width*3/4-20, self.view.frame.size.height/8)];
     [self.questionField.layer setMasksToBounds:YES];
     [self.questionField.layer setCornerRadius:10];
-    [self.questionField setFont:[UIFont systemFontOfSize:25]];
-    [self.view addSubview:self.questionField];
+    [self.questionField setFont:[UIFont systemFontOfSize:20]];
     [self.questionField setDelegate:self];
+    [self.view addSubview:self.questionField];
     
     self.askButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.askButton.frame = CGRectMake(self.view.frame.size.width *3/4-5, 40, self.view.frame.size.width / 4, self.view.frame.size.height/8-20); // position in the parent view and set the size of the button
+    [self.askButton setFrame:CGRectMake(self.view.frame.size.width *3/4-5, 40, self.view.frame.size.width / 4, self.view.frame.size.height/8-20)];
     [self.askButton setTitle:@"Ask Watson!" forState:UIControlStateNormal];
-    [self.askButton setFont:[UIFont systemFontOfSize:15]];
+    [self.askButton.titleLabel setFont:[UIFont systemFontOfSize:15]];
+    [self.askButton.titleLabel setAdjustsFontSizeToFitWidth:YES];
     [self.askButton addTarget:self action:@selector(tappedAsk) forControlEvents:UIControlEventTouchUpInside];
-//    [self.askButton setBackgroundImage:[UIImage imageNamed:@"whiteButton.png"] forState:UIControlStateNormal];
     [self.view addSubview:self.askButton];
-    
+
+    self.responseTextView = [UITextView new];
+    [self.responseTextView setFrame:CGRectMake(10, 120, self.view.frame.size.width-20, self.view.frame.size.height-190)];
+    [self.responseTextView setTextColor:[UIColor blackColor]];
+    [self.responseTextView setBackgroundColor:[UIColor whiteColor]];
+    [self.responseTextView setTextAlignment:NSTextAlignmentCenter];
+    [self.responseTextView setFont:[UIFont systemFontOfSize:18]];
+    [self.responseTextView setText:@""];
+    [self.responseTextView setEditable:NO];
+    [self.responseTextView setDirectionalLockEnabled:YES];
+    [self.responseTextView setAlwaysBounceVertical:YES];
+    [self.responseTextView setAlwaysBounceHorizontal:NO];
+    [self.responseTextView.layer setCornerRadius:10];
+    [self.responseTextView setDelegate:self];
+    [self.view addSubview:self.responseTextView];
     
     self.watsonLogo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"watson_logo"]];
-    [self.watsonLogo setFrame:CGRectMake(self.view.frame.size.width *5/8-20, self.view.frame.size.height - 225, 125*1.12, 125)];
     [self.watsonLogo.layer setMasksToBounds:YES];
     [self.watsonLogo.layer setCornerRadius:10];
     [self.view addSubview:self.watsonLogo];
-    
+    [self setUIToDefault];
+}
+
+- (void) viewDidLoad {
+    [super viewDidLoad];
+    self.tapToDismiss = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:self.tapToDismiss];
+    [self.responseTextView addGestureRecognizer:self.tapToDismiss];
+    if (![self checkInternetConnected]) {
+        NSLog(@"Not connected");
+        self.connected = false;
+    } else {
+        NSLog(@"connected");
+        self.connected = true;
+    }
 }
 
 - (void)tappedAsk {
-    [self.backgroundImageView startAnimating];
-    [self askQuestionWithText:self.questionField.text];
+    if ([self.questionField.text isEqualToString:@""]) {
+        [self.responseTextView setText:@""];
+        [self setUIToAskNewQuestion];
+    } else {
+        if (self.connected) {
+            [self askQuestionWithText:self.questionField.text];
+            [self setUIToViewAnswer];
+        } else {
+            [self.responseTextView setText:@"Sorry you aren't connected to the internet, please check your network settings."];
+            [self setUIToDefault];
+        }
+
+    }
     [self.questionField resignFirstResponder];
+}
+
+-(void)setUIToViewAnswer {
+    NSLog(@"move to side");
+    NSNumber *rotationAtStart = [self.watsonLogo.layer valueForKeyPath:@"transform.rotation"];
+    float myRotationAngle = M_PI*6;
+    CATransform3D myRotationTransform = CATransform3DRotate(self.watsonLogo.layer.transform, myRotationAngle, 0.0, 0.0, 1.0);
+    self.watsonLogo.layer.transform = myRotationTransform;
+    CABasicAnimation *myAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    myAnimation.duration = 4;
+    myAnimation.fromValue = rotationAtStart;
+    myAnimation.toValue = [NSNumber numberWithFloat:([rotationAtStart floatValue] + myRotationAngle)];
+    [self.watsonLogo.layer addAnimation:myAnimation forKey:@"transform.rotation"];
+    
+    [UIView animateWithDuration:2  delay:2 options:0 animations:^{
+        [self.watsonLogo setFrame:CGRectMake(0, 0, 200*1.12, 200)];
+        [self.watsonLogo setCenter:CGPointMake(self.view.center.x, self.view.center.y-80)];
+        [self.watsonLogo setAlpha:0];
+        [self.questionField setFrame:CGRectMake(10, 30, self.view.frame.size.width-20, self.questionField.frame.size.height)];
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+-(void)setUIToAskNewQuestion {
+    [self.questionField setText:@""];
+    [self.responseTextView setText:@"Ask Watson anything about sepsis"];
+    [UIView animateWithDuration:1 animations:^{
+        [self.watsonLogo setFrame:CGRectMake(0, 0, 100*1.12, 100)];
+        [self.watsonLogo setCenter:CGPointMake(self.view.center.x, self.view.center.y-80)];
+        [self.watsonLogo setAlpha:1];
+        [self.questionField setFrame:CGRectMake(10, 30, self.view.frame.size.width*3/4-20, self.view.frame.size.height/8)];
+    }];
+}
+
+-(void)setUIToDefault {
+    [self.questionField setText:@"Tap to Ask Watson!"];
+//    [self.responseTextView setText:@"You can ask..."];
+    [UIView animateWithDuration:1 animations:^{
+        [self.watsonLogo setFrame:CGRectMake(0, 0, 205*1.12, 205)];
+        [self.watsonLogo setCenter:CGPointMake(self.view.center.x, self.view.center.y)];
+        [self.watsonLogo setAlpha:1];
+        [self.questionField setFrame:CGRectMake(10, 30, self.view.frame.size.width-20, self.view.frame.size.height/8)];
+    }];
 }
 
 -(void)askQuestionWithText:(NSString *)text {
     __block UITextView *weakResponseTextView = self.responseTextView;
     [[WPWatson sharedManager] askQuestion:text completionHandler:^(NSString *response, NSError *connectionError) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            weakResponseTextView.text = response;
+            if ([response isEqualToString:@""]) {
+                weakResponseTextView.text = @"Sorry, Watson couldn't understand you question, please try another one";
+            } else {
+                weakResponseTextView.text = response;
+            }
         });
     }];
 }
 
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     if ([text isEqualToString:@"\n"])  {
-        [textView resignFirstResponder];
         [self tappedAsk];
     }
-    return YES;
-}
-
-
--(BOOL)textViewShouldEndEditing:(UITextView *)textView {
-    [textView resignFirstResponder];
     
-    [self tappedAsk];
-    return true;
+    CGFloat fontSize = textView.font.pointSize-2;
+    if (textView.contentSize.height > textView.frame.size.height && fontSize > 8.0) {
+        textView.font = [textView.font fontWithSize:fontSize];
+    }
+    return YES;
 }
 
 -(void)textViewDidBeginEditing:(UITextView *)textView {
+    [self setUIToAskNewQuestion];
 }
 
--(BOOL)textViewShouldBeginEditing:(UITextView *)textView
+-(void)dismissKeyboard {
+    NSLog(@"dismiss");
+    [self.questionField resignFirstResponder];
+    [self setUIToDefault];
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    [super touchesEnded:touches withEvent:event];
+    [self dismissKeyboard];
+}
+
+
+- (BOOL)checkInternetConnected
 {
-    if ([textView isEqual:self.responseTextView]) {
-        [textView resignFirstResponder];
-        return NO;
-    }
-    return YES;
+    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [reachability currentReachabilityStatus];
+    return !(networkStatus == NotReachable);
 }
-
-//-(void)textViewDidEndEditing:(UITextView *)textView {
-//
-//}
 
 @end
 

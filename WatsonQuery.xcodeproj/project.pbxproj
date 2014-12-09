@@ -40,6 +40,7 @@
 		89A842181A1D913100821CDB /* SPSNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A842171A1D913100821CDB /* SPSNotification.m */; };
 		89A8421B1A1D914900821CDB /* SPSNotification+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A8421A1A1D914900821CDB /* SPSNotification+Helpers.m */; };
 		89A842211A1D92E600821CDB /* SPSNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A842201A1D92E600821CDB /* SPSNotificationManager.m */; };
+		89F5B9271A340E3F00051032 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F5B9261A340E3F00051032 /* Reachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,8 @@
 		89A8421F1A1D92E600821CDB /* SPSNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSNotificationManager.h; sourceTree = "<group>"; };
 		89A842201A1D92E600821CDB /* SPSNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSNotificationManager.m; sourceTree = "<group>"; };
 		89B2C5911A1BB09A0076D1C1 /* SPSGraphDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPSGraphDataSource.h; sourceTree = "<group>"; };
+		89F5B9251A340E3F00051032 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		89F5B9261A340E3F00051032 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +154,8 @@
 				8906C03819F5744E00291F64 /* WPWatsonQuestionResponse.h */,
 				8906C03919F5744E00291F64 /* WPWatsonQuestionResponse.m */,
 				8906C03419F573A100291F64 /* WPConstants.m */,
+				89F5B9251A340E3F00051032 /* Reachability.h */,
+				89F5B9261A340E3F00051032 /* Reachability.m */,
 				8906C03619F573A700291F64 /* config.plist */,
 			);
 			name = Watson;
@@ -422,6 +427,7 @@
 				89A842211A1D92E600821CDB /* SPSNotificationManager.m in Sources */,
 				89698E151A1A6DB800CE8FFB /* SPSJawboneManager.m in Sources */,
 				89698E0A1A1A6A0A00CE8FFB /* SPSNotificationViewController.m in Sources */,
+				89F5B9271A340E3F00051032 /* Reachability.m in Sources */,
 				89698E0C1A1A6A0A00CE8FFB /* SPSTrendLayout.m in Sources */,
 				897001081A1BC73C00F6DD2A /* SPSTrendDataManager+Algorithms.m in Sources */,
 				8906C03519F573A100291F64 /* WPConstants.m in Sources */,
@@ -560,10 +566,10 @@
 					"$(PROJECT_DIR)/UPPlatformSDK",
 				);
 				INFOPLIST_FILE = WatsonQuery/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WatsonQuery;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "WatsonQuery/WatsonQuery-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -583,10 +589,10 @@
 					"$(PROJECT_DIR)/UPPlatformSDK",
 				);
 				INFOPLIST_FILE = WatsonQuery/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WatsonQuery;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "WatsonQuery/WatsonQuery-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
