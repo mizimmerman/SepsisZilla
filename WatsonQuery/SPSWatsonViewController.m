@@ -133,6 +133,8 @@
 
 -(void)setUIToAskNewQuestion {
     [self.questionField setText:@""];
+    [self.questionField setTextAlignment:NSTextAlignmentLeft];
+
     [self.responseTextView setText:@"Ask Watson anything about sepsis"];
     [UIView animateWithDuration:1 animations:^{
         [self.watsonLogo setFrame:CGRectMake(0, 0, 100*1.12, 100)];
@@ -143,13 +145,14 @@
 }
 
 -(void)setUIToDefault {
-    [self.questionField setText:@"Tap to Ask Watson!"];
+    [self.questionField setText:@"\nTap to Ask Watson!"];
 //    [self.responseTextView setText:@"You can ask..."];
     [UIView animateWithDuration:1 animations:^{
         [self.watsonLogo setFrame:CGRectMake(0, 0, 205*1.12, 205)];
         [self.watsonLogo setCenter:CGPointMake(self.view.center.x, self.view.center.y)];
         [self.watsonLogo setAlpha:1];
         [self.questionField setFrame:CGRectMake(10, 30, self.view.frame.size.width-20, self.view.frame.size.height/8)];
+        [self.questionField setTextAlignment:NSTextAlignmentCenter];
     }];
 }
 

@@ -1,0 +1,684 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8906C02F19F5738F00291F64 /* WPWatson.m in Sources */ = {isa = PBXBuildFile; fileRef = 8906C02E19F5738F00291F64 /* WPWatson.m */; };
+		8906C03219F5739B00291F64 /* WPUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8906C03119F5739B00291F64 /* WPUtils.m */; };
+		8906C03519F573A100291F64 /* WPConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 8906C03419F573A100291F64 /* WPConstants.m */; };
+		8906C03719F573A700291F64 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8906C03619F573A700291F64 /* config.plist */; };
+		8906C03A19F5744E00291F64 /* WPWatsonQuestionResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 8906C03919F5744E00291F64 /* WPWatsonQuestionResponse.m */; };
+		8906C03E19F5833000291F64 /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8906C03D19F5833000291F64 /* TabViewController.m */; };
+		8906C04119F5D77700291F64 /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8906C04019F5D77700291F64 /* GraphViewController.m */; };
+		890B6A7619EEE380007E839F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 890B6A7519EEE380007E839F /* main.m */; };
+		890B6A7919EEE380007E839F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 890B6A7819EEE380007E839F /* AppDelegate.m */; };
+		890B6A7C19EEE380007E839F /* SPSWatsonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 890B6A7B19EEE380007E839F /* SPSWatsonViewController.m */; };
+		890B6A8119EEE380007E839F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 890B6A8019EEE380007E839F /* Images.xcassets */; };
+		890B6A8419EEE380007E839F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 890B6A8219EEE380007E839F /* LaunchScreen.xib */; };
+		890B6A9019EEE380007E839F /* WatsonQueryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 890B6A8F19EEE380007E839F /* WatsonQueryTests.m */; };
+		8925888A19F9F9D200AEA7BE /* UIColor+SPSColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925888919F9F9D200AEA7BE /* UIColor+SPSColors.m */; };
+		893A799819FC8CE40070D46E /* UPPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893A799719FC8CE40070D46E /* UPPlatform.framework */; };
+		89698E051A1A6A0A00CE8FFB /* BEMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 89698DF21A1A6A0A00CE8FFB /* BEMCircle.m */; };
+		89698E061A1A6A0A00CE8FFB /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 89698DF41A1A6A0A00CE8FFB /* BEMLine.m */; };
+		89698E071A1A6A0A00CE8FFB /* BEMSimpleLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89698DF61A1A6A0A00CE8FFB /* BEMSimpleLineGraphView.m */; };
+		89698E081A1A6A0A00CE8FFB /* SPSGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89698DF81A1A6A0A00CE8FFB /* SPSGraphView.m */; };
+		89698E091A1A6A0A00CE8FFB /* SPSNotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89698DFA1A1A6A0A00CE8FFB /* SPSNotificationTableViewCell.m */; };
+		89698E0A1A1A6A0A00CE8FFB /* SPSNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89698DFC1A1A6A0A00CE8FFB /* SPSNotificationViewController.m */; };
+		89698E0B1A1A6A0A00CE8FFB /* SPSTrendDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89698DFE1A1A6A0A00CE8FFB /* SPSTrendDataManager.m */; };
+		89698E0C1A1A6A0A00CE8FFB /* SPSTrendLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 89698E001A1A6A0A00CE8FFB /* SPSTrendLayout.m */; };
+		89698E0D1A1A6A0A00CE8FFB /* SPSTrendViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89698E021A1A6A0A00CE8FFB /* SPSTrendViewCell.m */; };
+		89698E0E1A1A6A0A00CE8FFB /* SPSTrendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89698E041A1A6A0A00CE8FFB /* SPSTrendViewController.m */; };
+		89698E151A1A6DB800CE8FFB /* SPSJawboneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89698E141A1A6DB800CE8FFB /* SPSJawboneManager.m */; };
+		897001081A1BC73C00F6DD2A /* SPSTrendDataManager+Algorithms.m in Sources */ = {isa = PBXBuildFile; fileRef = 897001071A1BC73C00F6DD2A /* SPSTrendDataManager+Algorithms.m */; };
+		89A8420F1A1D904000821CDB /* SPSCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A8420E1A1D904000821CDB /* SPSCoreDataHelper.m */; };
+		89A842111A1D909600821CDB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A842101A1D909600821CDB /* CoreData.framework */; };
+		89A842151A1D90F300821CDB /* SPSModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89A842131A1D90F300821CDB /* SPSModel.xcdatamodeld */; };
+		89A842181A1D913100821CDB /* SPSNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A842171A1D913100821CDB /* SPSNotification.m */; };
+		89A8421B1A1D914900821CDB /* SPSNotification+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A8421A1A1D914900821CDB /* SPSNotification+Helpers.m */; };
+		89A842211A1D92E600821CDB /* SPSNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A842201A1D92E600821CDB /* SPSNotificationManager.m */; };
+		89F5B9271A340E3F00051032 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F5B9261A340E3F00051032 /* Reachability.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		890B6A8A19EEE380007E839F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 890B6A6819EEE380007E839F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 890B6A6F19EEE380007E839F;
+			remoteInfo = WatsonQuery;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8906C02D19F5738F00291F64 /* WPWatson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPWatson.h; sourceTree = "<group>"; };
+		8906C02E19F5738F00291F64 /* WPWatson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPWatson.m; sourceTree = "<group>"; };
+		8906C03019F5739B00291F64 /* WPUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPUtils.h; sourceTree = "<group>"; };
+		8906C03119F5739B00291F64 /* WPUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPUtils.m; sourceTree = "<group>"; };
+		8906C03319F573A100291F64 /* WPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPConstants.h; sourceTree = "<group>"; };
+		8906C03419F573A100291F64 /* WPConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPConstants.m; sourceTree = "<group>"; };
+		8906C03619F573A700291F64 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
+		8906C03819F5744E00291F64 /* WPWatsonQuestionResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPWatsonQuestionResponse.h; sourceTree = "<group>"; };
+		8906C03919F5744E00291F64 /* WPWatsonQuestionResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPWatsonQuestionResponse.m; sourceTree = "<group>"; };
+		8906C03C19F5833000291F64 /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
+		8906C03D19F5833000291F64 /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
+		8906C03F19F5D77700291F64 /* GraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphViewController.h; sourceTree = "<group>"; };
+		8906C04019F5D77700291F64 /* GraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphViewController.m; sourceTree = "<group>"; };
+		890B6A7019EEE380007E839F /* Spotsis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotsis.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		890B6A7419EEE380007E839F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		890B6A7519EEE380007E839F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		890B6A7719EEE380007E839F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		890B6A7819EEE380007E839F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		890B6A7A19EEE380007E839F /* SPSWatsonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPSWatsonViewController.h; sourceTree = "<group>"; };
+		890B6A7B19EEE380007E839F /* SPSWatsonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPSWatsonViewController.m; sourceTree = "<group>"; };
+		890B6A8019EEE380007E839F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		890B6A8319EEE380007E839F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		890B6A8919EEE380007E839F /* SpotsisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotsisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		890B6A8E19EEE380007E839F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		890B6A8F19EEE380007E839F /* WatsonQueryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WatsonQueryTests.m; sourceTree = "<group>"; };
+		8925888819F9F9D200AEA7BE /* UIColor+SPSColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SPSColors.h"; sourceTree = "<group>"; };
+		8925888919F9F9D200AEA7BE /* UIColor+SPSColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SPSColors.m"; sourceTree = "<group>"; };
+		893A799719FC8CE40070D46E /* UPPlatform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UPPlatform.framework; path = UPPlatformSDK/UPPlatform.framework; sourceTree = "<group>"; };
+		89698DF11A1A6A0A00CE8FFB /* BEMCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCircle.h; sourceTree = "<group>"; };
+		89698DF21A1A6A0A00CE8FFB /* BEMCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCircle.m; sourceTree = "<group>"; };
+		89698DF31A1A6A0A00CE8FFB /* BEMLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMLine.h; sourceTree = "<group>"; };
+		89698DF41A1A6A0A00CE8FFB /* BEMLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMLine.m; sourceTree = "<group>"; };
+		89698DF51A1A6A0A00CE8FFB /* BEMSimpleLineGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMSimpleLineGraphView.h; sourceTree = "<group>"; };
+		89698DF61A1A6A0A00CE8FFB /* BEMSimpleLineGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMSimpleLineGraphView.m; sourceTree = "<group>"; };
+		89698DF71A1A6A0A00CE8FFB /* SPSGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSGraphView.h; sourceTree = "<group>"; };
+		89698DF81A1A6A0A00CE8FFB /* SPSGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSGraphView.m; sourceTree = "<group>"; };
+		89698DF91A1A6A0A00CE8FFB /* SPSNotificationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSNotificationTableViewCell.h; sourceTree = "<group>"; };
+		89698DFA1A1A6A0A00CE8FFB /* SPSNotificationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSNotificationTableViewCell.m; sourceTree = "<group>"; };
+		89698DFB1A1A6A0A00CE8FFB /* SPSNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSNotificationViewController.h; sourceTree = "<group>"; };
+		89698DFC1A1A6A0A00CE8FFB /* SPSNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSNotificationViewController.m; sourceTree = "<group>"; };
+		89698DFD1A1A6A0A00CE8FFB /* SPSTrendDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSTrendDataManager.h; sourceTree = "<group>"; };
+		89698DFE1A1A6A0A00CE8FFB /* SPSTrendDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSTrendDataManager.m; sourceTree = "<group>"; };
+		89698DFF1A1A6A0A00CE8FFB /* SPSTrendLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSTrendLayout.h; sourceTree = "<group>"; };
+		89698E001A1A6A0A00CE8FFB /* SPSTrendLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSTrendLayout.m; sourceTree = "<group>"; };
+		89698E011A1A6A0A00CE8FFB /* SPSTrendViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSTrendViewCell.h; sourceTree = "<group>"; };
+		89698E021A1A6A0A00CE8FFB /* SPSTrendViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSTrendViewCell.m; sourceTree = "<group>"; };
+		89698E031A1A6A0A00CE8FFB /* SPSTrendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSTrendViewController.h; sourceTree = "<group>"; };
+		89698E041A1A6A0A00CE8FFB /* SPSTrendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSTrendViewController.m; sourceTree = "<group>"; };
+		89698E131A1A6DB800CE8FFB /* SPSJawboneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSJawboneManager.h; sourceTree = "<group>"; };
+		89698E141A1A6DB800CE8FFB /* SPSJawboneManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSJawboneManager.m; sourceTree = "<group>"; };
+		897001061A1BC73C00F6DD2A /* SPSTrendDataManager+Algorithms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SPSTrendDataManager+Algorithms.h"; sourceTree = "<group>"; };
+		897001071A1BC73C00F6DD2A /* SPSTrendDataManager+Algorithms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SPSTrendDataManager+Algorithms.m"; sourceTree = "<group>"; };
+		89A8420D1A1D904000821CDB /* SPSCoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSCoreDataHelper.h; sourceTree = "<group>"; };
+		89A8420E1A1D904000821CDB /* SPSCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSCoreDataHelper.m; sourceTree = "<group>"; };
+		89A842101A1D909600821CDB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		89A842141A1D90F300821CDB /* SPSModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SPSModel.xcdatamodel; sourceTree = "<group>"; };
+		89A842161A1D913100821CDB /* SPSNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSNotification.h; sourceTree = "<group>"; };
+		89A842171A1D913100821CDB /* SPSNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSNotification.m; sourceTree = "<group>"; };
+		89A842191A1D914900821CDB /* SPSNotification+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SPSNotification+Helpers.h"; sourceTree = "<group>"; };
+		89A8421A1A1D914900821CDB /* SPSNotification+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SPSNotification+Helpers.m"; sourceTree = "<group>"; };
+		89A8421F1A1D92E600821CDB /* SPSNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSNotificationManager.h; sourceTree = "<group>"; };
+		89A842201A1D92E600821CDB /* SPSNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSNotificationManager.m; sourceTree = "<group>"; };
+		89B2C5911A1BB09A0076D1C1 /* SPSGraphDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPSGraphDataSource.h; sourceTree = "<group>"; };
+		89F5B9251A340E3F00051032 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		89F5B9261A340E3F00051032 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		890B6A6D19EEE380007E839F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89A842111A1D909600821CDB /* CoreData.framework in Frameworks */,
+				893A799819FC8CE40070D46E /* UPPlatform.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		890B6A8619EEE380007E839F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8906C03B19F5807300291F64 /* Watson */ = {
+			isa = PBXGroup;
+			children = (
+				890B6A7A19EEE380007E839F /* SPSWatsonViewController.h */,
+				890B6A7B19EEE380007E839F /* SPSWatsonViewController.m */,
+				8906C02D19F5738F00291F64 /* WPWatson.h */,
+				8906C02E19F5738F00291F64 /* WPWatson.m */,
+				8906C03019F5739B00291F64 /* WPUtils.h */,
+				8906C03119F5739B00291F64 /* WPUtils.m */,
+				8906C03319F573A100291F64 /* WPConstants.h */,
+				8906C03819F5744E00291F64 /* WPWatsonQuestionResponse.h */,
+				8906C03919F5744E00291F64 /* WPWatsonQuestionResponse.m */,
+				8906C03419F573A100291F64 /* WPConstants.m */,
+				89F5B9251A340E3F00051032 /* Reachability.h */,
+				89F5B9261A340E3F00051032 /* Reachability.m */,
+				8906C03619F573A700291F64 /* config.plist */,
+			);
+			name = Watson;
+			sourceTree = "<group>";
+		};
+		890B6A6719EEE380007E839F = {
+			isa = PBXGroup;
+			children = (
+				89A842101A1D909600821CDB /* CoreData.framework */,
+				893A799719FC8CE40070D46E /* UPPlatform.framework */,
+				890B6A7219EEE380007E839F /* WatsonQuery */,
+				890B6A8C19EEE380007E839F /* WatsonQueryTests */,
+				890B6A7119EEE380007E839F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		890B6A7119EEE380007E839F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				890B6A7019EEE380007E839F /* Spotsis.app */,
+				890B6A8919EEE380007E839F /* SpotsisTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		890B6A7219EEE380007E839F /* WatsonQuery */ = {
+			isa = PBXGroup;
+			children = (
+				890B6A7719EEE380007E839F /* AppDelegate.h */,
+				890B6A7819EEE380007E839F /* AppDelegate.m */,
+				8906C03C19F5833000291F64 /* TabViewController.h */,
+				8906C03D19F5833000291F64 /* TabViewController.m */,
+				89698E101A1A6A2800CE8FFB /* Notifications */,
+				89698E0F1A1A6A1D00CE8FFB /* Trends */,
+				89A842121A1D90D900821CDB /* Data */,
+				8906C03B19F5807300291F64 /* Watson */,
+				89B2C58F1A1BADC70076D1C1 /* Deprecated */,
+				89698E121A1A6CF900CE8FFB /* Categories */,
+				890B6A8019EEE380007E839F /* Images.xcassets */,
+				890B6A8219EEE380007E839F /* LaunchScreen.xib */,
+				890B6A7319EEE380007E839F /* Supporting Files */,
+			);
+			path = WatsonQuery;
+			sourceTree = "<group>";
+		};
+		890B6A7319EEE380007E839F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				890B6A7419EEE380007E839F /* Info.plist */,
+				890B6A7519EEE380007E839F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		890B6A8C19EEE380007E839F /* WatsonQueryTests */ = {
+			isa = PBXGroup;
+			children = (
+				890B6A8F19EEE380007E839F /* WatsonQueryTests.m */,
+				890B6A8D19EEE380007E839F /* Supporting Files */,
+			);
+			path = WatsonQueryTests;
+			sourceTree = "<group>";
+		};
+		890B6A8D19EEE380007E839F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				890B6A8E19EEE380007E839F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		89698E0F1A1A6A1D00CE8FFB /* Trends */ = {
+			isa = PBXGroup;
+			children = (
+				89698E111A1A6A3C00CE8FFB /* BEM Graph */,
+				89B2C5911A1BB09A0076D1C1 /* SPSGraphDataSource.h */,
+				89698E031A1A6A0A00CE8FFB /* SPSTrendViewController.h */,
+				89698E041A1A6A0A00CE8FFB /* SPSTrendViewController.m */,
+				89B2C5901A1BAE1F0076D1C1 /* Views */,
+				89698E131A1A6DB800CE8FFB /* SPSJawboneManager.h */,
+				89698E141A1A6DB800CE8FFB /* SPSJawboneManager.m */,
+			);
+			name = Trends;
+			sourceTree = "<group>";
+		};
+		89698E101A1A6A2800CE8FFB /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				89698DF91A1A6A0A00CE8FFB /* SPSNotificationTableViewCell.h */,
+				89698DFA1A1A6A0A00CE8FFB /* SPSNotificationTableViewCell.m */,
+				89698DFB1A1A6A0A00CE8FFB /* SPSNotificationViewController.h */,
+				89698DFC1A1A6A0A00CE8FFB /* SPSNotificationViewController.m */,
+			);
+			name = Notifications;
+			sourceTree = "<group>";
+		};
+		89698E111A1A6A3C00CE8FFB /* BEM Graph */ = {
+			isa = PBXGroup;
+			children = (
+				89698DF11A1A6A0A00CE8FFB /* BEMCircle.h */,
+				89698DF21A1A6A0A00CE8FFB /* BEMCircle.m */,
+				89698DF31A1A6A0A00CE8FFB /* BEMLine.h */,
+				89698DF41A1A6A0A00CE8FFB /* BEMLine.m */,
+				89698DF51A1A6A0A00CE8FFB /* BEMSimpleLineGraphView.h */,
+				89698DF61A1A6A0A00CE8FFB /* BEMSimpleLineGraphView.m */,
+			);
+			name = "BEM Graph";
+			sourceTree = "<group>";
+		};
+		89698E121A1A6CF900CE8FFB /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				8925888819F9F9D200AEA7BE /* UIColor+SPSColors.h */,
+				8925888919F9F9D200AEA7BE /* UIColor+SPSColors.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		89A842121A1D90D900821CDB /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				89698DFD1A1A6A0A00CE8FFB /* SPSTrendDataManager.h */,
+				89698DFE1A1A6A0A00CE8FFB /* SPSTrendDataManager.m */,
+				897001061A1BC73C00F6DD2A /* SPSTrendDataManager+Algorithms.h */,
+				897001071A1BC73C00F6DD2A /* SPSTrendDataManager+Algorithms.m */,
+				89A8421F1A1D92E600821CDB /* SPSNotificationManager.h */,
+				89A842201A1D92E600821CDB /* SPSNotificationManager.m */,
+				89A8420D1A1D904000821CDB /* SPSCoreDataHelper.h */,
+				89A8420E1A1D904000821CDB /* SPSCoreDataHelper.m */,
+				89A842131A1D90F300821CDB /* SPSModel.xcdatamodeld */,
+				89A842161A1D913100821CDB /* SPSNotification.h */,
+				89A842171A1D913100821CDB /* SPSNotification.m */,
+				89A842191A1D914900821CDB /* SPSNotification+Helpers.h */,
+				89A8421A1A1D914900821CDB /* SPSNotification+Helpers.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		89B2C58F1A1BADC70076D1C1 /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				8906C03F19F5D77700291F64 /* GraphViewController.h */,
+				8906C04019F5D77700291F64 /* GraphViewController.m */,
+			);
+			name = Deprecated;
+			sourceTree = "<group>";
+		};
+		89B2C5901A1BAE1F0076D1C1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				89698E011A1A6A0A00CE8FFB /* SPSTrendViewCell.h */,
+				89698E021A1A6A0A00CE8FFB /* SPSTrendViewCell.m */,
+				89698DF71A1A6A0A00CE8FFB /* SPSGraphView.h */,
+				89698DF81A1A6A0A00CE8FFB /* SPSGraphView.m */,
+				89698DFF1A1A6A0A00CE8FFB /* SPSTrendLayout.h */,
+				89698E001A1A6A0A00CE8FFB /* SPSTrendLayout.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		890B6A6F19EEE380007E839F /* Spotsis */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 890B6A9319EEE380007E839F /* Build configuration list for PBXNativeTarget "Spotsis" */;
+			buildPhases = (
+				890B6A6C19EEE380007E839F /* Sources */,
+				890B6A6D19EEE380007E839F /* Frameworks */,
+				890B6A6E19EEE380007E839F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Spotsis;
+			productName = WatsonQuery;
+			productReference = 890B6A7019EEE380007E839F /* Spotsis.app */;
+			productType = "com.apple.product-type.application";
+		};
+		890B6A8819EEE380007E839F /* SpotsisTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 890B6A9619EEE380007E839F /* Build configuration list for PBXNativeTarget "SpotsisTests" */;
+			buildPhases = (
+				890B6A8519EEE380007E839F /* Sources */,
+				890B6A8619EEE380007E839F /* Frameworks */,
+				890B6A8719EEE380007E839F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				890B6A8B19EEE380007E839F /* PBXTargetDependency */,
+			);
+			name = SpotsisTests;
+			productName = WatsonQueryTests;
+			productReference = 890B6A8919EEE380007E839F /* SpotsisTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		890B6A6819EEE380007E839F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "EECS 481";
+				TargetAttributes = {
+					890B6A6F19EEE380007E839F = {
+						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = QAZG2BYMD2;
+					};
+					890B6A8819EEE380007E839F = {
+						CreatedOnToolsVersion = 6.0.1;
+						TestTargetID = 890B6A6F19EEE380007E839F;
+					};
+				};
+			};
+			buildConfigurationList = 890B6A6B19EEE380007E839F /* Build configuration list for PBXProject "Spotsis" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 890B6A6719EEE380007E839F;
+			productRefGroup = 890B6A7119EEE380007E839F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				890B6A6F19EEE380007E839F /* Spotsis */,
+				890B6A8819EEE380007E839F /* SpotsisTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		890B6A6E19EEE380007E839F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8906C03719F573A700291F64 /* config.plist in Resources */,
+				890B6A8419EEE380007E839F /* LaunchScreen.xib in Resources */,
+				890B6A8119EEE380007E839F /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		890B6A8719EEE380007E839F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		890B6A6C19EEE380007E839F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89698E081A1A6A0A00CE8FFB /* SPSGraphView.m in Sources */,
+				89698E071A1A6A0A00CE8FFB /* BEMSimpleLineGraphView.m in Sources */,
+				89A842181A1D913100821CDB /* SPSNotification.m in Sources */,
+				89698E051A1A6A0A00CE8FFB /* BEMCircle.m in Sources */,
+				89A8420F1A1D904000821CDB /* SPSCoreDataHelper.m in Sources */,
+				8906C02F19F5738F00291F64 /* WPWatson.m in Sources */,
+				890B6A7C19EEE380007E839F /* SPSWatsonViewController.m in Sources */,
+				89A842211A1D92E600821CDB /* SPSNotificationManager.m in Sources */,
+				89698E151A1A6DB800CE8FFB /* SPSJawboneManager.m in Sources */,
+				89698E0A1A1A6A0A00CE8FFB /* SPSNotificationViewController.m in Sources */,
+				89F5B9271A340E3F00051032 /* Reachability.m in Sources */,
+				89698E0C1A1A6A0A00CE8FFB /* SPSTrendLayout.m in Sources */,
+				897001081A1BC73C00F6DD2A /* SPSTrendDataManager+Algorithms.m in Sources */,
+				8906C03519F573A100291F64 /* WPConstants.m in Sources */,
+				8906C03219F5739B00291F64 /* WPUtils.m in Sources */,
+				89698E091A1A6A0A00CE8FFB /* SPSNotificationTableViewCell.m in Sources */,
+				8925888A19F9F9D200AEA7BE /* UIColor+SPSColors.m in Sources */,
+				89A8421B1A1D914900821CDB /* SPSNotification+Helpers.m in Sources */,
+				89698E061A1A6A0A00CE8FFB /* BEMLine.m in Sources */,
+				89698E0B1A1A6A0A00CE8FFB /* SPSTrendDataManager.m in Sources */,
+				8906C03E19F5833000291F64 /* TabViewController.m in Sources */,
+				89698E0D1A1A6A0A00CE8FFB /* SPSTrendViewCell.m in Sources */,
+				8906C04119F5D77700291F64 /* GraphViewController.m in Sources */,
+				890B6A7919EEE380007E839F /* AppDelegate.m in Sources */,
+				89A842151A1D90F300821CDB /* SPSModel.xcdatamodeld in Sources */,
+				890B6A7619EEE380007E839F /* main.m in Sources */,
+				89698E0E1A1A6A0A00CE8FFB /* SPSTrendViewController.m in Sources */,
+				8906C03A19F5744E00291F64 /* WPWatsonQuestionResponse.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		890B6A8519EEE380007E839F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				890B6A9019EEE380007E839F /* WatsonQueryTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		890B6A8B19EEE380007E839F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 890B6A6F19EEE380007E839F /* Spotsis */;
+			targetProxy = 890B6A8A19EEE380007E839F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		890B6A8219EEE380007E839F /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				890B6A8319EEE380007E839F /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		890B6A9119EEE380007E839F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		890B6A9219EEE380007E839F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		890B6A9419EEE380007E839F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/UPPlatformSDK",
+				);
+				INFOPLIST_FILE = WatsonQuery/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = Spotsis;
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "WatsonQuery/WatsonQuery-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		890B6A9519EEE380007E839F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/UPPlatformSDK",
+				);
+				INFOPLIST_FILE = WatsonQuery/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = Spotsis;
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "WatsonQuery/WatsonQuery-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		890B6A9719EEE380007E839F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WatsonQueryTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = SpotsisTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WatsonQuery.app/WatsonQuery";
+			};
+			name = Debug;
+		};
+		890B6A9819EEE380007E839F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WatsonQueryTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = SpotsisTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WatsonQuery.app/WatsonQuery";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		890B6A6B19EEE380007E839F /* Build configuration list for PBXProject "Spotsis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				890B6A9119EEE380007E839F /* Debug */,
+				890B6A9219EEE380007E839F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		890B6A9319EEE380007E839F /* Build configuration list for PBXNativeTarget "Spotsis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				890B6A9419EEE380007E839F /* Debug */,
+				890B6A9519EEE380007E839F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		890B6A9619EEE380007E839F /* Build configuration list for PBXNativeTarget "SpotsisTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				890B6A9719EEE380007E839F /* Debug */,
+				890B6A9819EEE380007E839F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		89A842131A1D90F300821CDB /* SPSModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				89A842141A1D90F300821CDB /* SPSModel.xcdatamodel */,
+			);
+			currentVersion = 89A842141A1D90F300821CDB /* SPSModel.xcdatamodel */;
+			path = SPSModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 890B6A6819EEE380007E839F /* Project object */;
+}
