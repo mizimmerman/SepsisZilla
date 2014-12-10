@@ -33,9 +33,9 @@
     self = [super init];
     if (self) {
         
-        self.sleeps = @[@4, @5, @6, @8, @4, @9, @6, @6, @9, @9, @9, @9, @8, @3, @3, @3, @3];
-        self.activities = @[@9000, @300, @4800, @8500, @3000, @8000, @1000, @9000, @9000, @10000, @5000, @12000];
-        self.heartRates = @[@60, @80, @60, @80, @90, @90, @60, @60, @90, @90, @95, @80, @85];
+        self.sleeps = @[@9.14, @5.56, @6.17, @6.5, @7, @6.5, @8.13, @7.53, @7.57, @6.16,  @7.4, @4.37, @2.26, @8.13, @6.4, @5.14, @8.06];
+        self.activities = @[@3291, @4705, @7319, @1755, @9394, @6190, @10124, @8949, @8551, @1233, @2297, @2034, @2550, @2931, @8580, @6789, @3558, @12872, @5059, @6080, @7931, @11257];
+        self.heartRates = @[@78, @75, @81, @85, @84, @79, @77, @78, @82, @91, @92, @85];
         
     }
     return self;
@@ -63,12 +63,18 @@
     NSNumber *monthAvg;
     NSNumber *high;
     NSNumber *low;
-    NSString *change;
+    NSNumber *change;
     NSString *unit;
     NSInteger totalRecords = 0;
     NSInteger recent = 5;
-    NSIndexSet *recentRecords = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.activities.count - recent, recent)];
-    NSIndexSet *pastRecords = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.activities.count - recent)];
+    NSIndexSet *pastRecords = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.activities.count - recent, recent)];
+    NSIndexSet *recentRecords = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.activities.count - recent)];
+    
+    NSIndexSet *sleepspastRecords = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.sleeps.count - recent, recent)];
+    NSIndexSet *sleepsrecentRecords = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.sleeps.count - recent)];
+    
+    NSIndexSet *HRpastRecords = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.heartRates.count - recent, recent)];
+    NSIndexSet *HRrecentRecords = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.heartRates.count - recent)];
 
     switch (type) {
         case SPSGraphTypeActivity:
@@ -91,7 +97,7 @@
             monthAvg = [self averageOfValues:self.sleeps ofTypes:[NSNumber class] numberOfDays:30];
             high = [self findHighest:self.sleeps ofTypes:[NSNumber class] numberOfDays:7];
             low = [self findLowest:self.sleeps ofTypes:[NSNumber class] numberOfDays:7];
-            change = [self changeOfValues:self.sleeps ofTypes:[NSNumber class] forBaseRange:pastRecords currentRange:recentRecords];
+            change = [self changeOfValues:self.sleeps ofTypes:[NSNumber class] forBaseRange:sleepspastRecords currentRange:sleepsrecentRecords];
             break;
         case SPSGraphTypeHR:
             totalRecords = self.heartRates.count;
@@ -102,7 +108,7 @@
             monthAvg = [self averageOfValues:self.heartRates ofTypes:[NSNumber class] numberOfDays:30];
             high = [self findHighest:self.heartRates ofTypes:[NSNumber class] numberOfDays:7];
             low = [self findLowest:self.heartRates ofTypes:[NSNumber class] numberOfDays:7];
-            change = [self changeOfValues:self.heartRates ofTypes:[NSNumber class] forBaseRange:pastRecords currentRange:recentRecords];
+            change = [self changeOfValues:self.heartRates ofTypes:[NSNumber class] forBaseRange:HRpastRecords currentRange:HRrecentRecords];
             break;
     }
     
@@ -112,10 +118,11 @@
     NSString *highStr = [NSString stringWithFormat:@"Weekly high: %@ %@", high, unit];
     NSString *lowStr = [NSString stringWithFormat:@"Weekly low: %@ %@", low, unit];
                          
-    NSString *moreLess = (change > 0) ? @"more" : @"less";
-    
-    NSString *message = [NSString stringWithFormat:@"For the past %i days you've averaged %@ %@. Over the past %i days, you've averaged %@ %@ %@ than average.", totalRecords, average, unit, recent, change, moreLess, unit];
-    NSString *recommendation = (change > 0) ? @"Nice job!" : @"You have gotten septic! See a doctor!";
+    NSString *moreLess = ([change floatValue]> 0.0f) ? @"more" : @"less";
+    float posChange = fabsf([change floatValue]);
+    NSString* formattedFloat = [NSString stringWithFormat:@"%.02f", posChange];
+    NSString *message = [NSString stringWithFormat:@"For the past %i days you've averaged %@ %@. Over the past %i days, you've averaged %@ %@ %@ than average.", totalRecords, average, unit, recent, formattedFloat, moreLess, unit];
+    NSString *recommendation = ([change floatValue]> 0.0f) ? @"Nice job, you're on an upward trend!" : @"Watch closely, you're on a downward trend!";
 
     return [NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@\n\n%@\n\n%@", dayAvgStr, weekAvgStr, monthAvgStr, highStr, lowStr, message, recommendation];
 

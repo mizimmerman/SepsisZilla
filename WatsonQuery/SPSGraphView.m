@@ -80,28 +80,44 @@
 - (NSString *)lineGraph:(BEMSimpleLineGraphView *)graph labelOnXAxisForIndex:(NSInteger)index {
     NSString *label;
     
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *comps = [gregorian components:NSWeekdayCalendarUnit fromDate:[NSDate date]];
+    int day = [comps weekday];
+    
     if (self.type == SPSGraphTypeActivity || self.type == SPSGraphTypeSleep) {
         switch (index) {
             case 0:
-                label = @"Mon";
+                if (day-6 < 1)
+                    day += 7;
+                label = [self weekday:day-6];
                 break;
             case 1:
-                label = @"Tue";
+                if (day-5 < 1)
+                    day += 7;
+                label = [self weekday:day-5];
                 break;
             case 2:
-                label = @"Wed";
+                if (day-4 < 1)
+                    day += 7;
+                label = [self weekday:day-4];
                 break;
             case 3:
-                label = @"Thu";
+                if (day-3 < 1)
+                    day += 7;
+                label = [self weekday:day-3];
                 break;
             case 4:
-                label = @"Fri";
+                if (day-2 < 1)
+                    day += 7;
+                label = [self weekday:day-2];
                 break;
             case 5:
-                label = @"Sat";
+                if (day-1 < 1)
+                    day += 7;
+                label = [self weekday:day-1];
                 break;
             case 6:
-                label = @"Sun";
+                label = [self weekday:day];
                 break;
             
             default:
@@ -117,6 +133,39 @@
 
 - (NSInteger)numberOfYAxisLabelsOnLineGraph:(BEMSimpleLineGraphView *)graph {
     return 6;
+}
+
+- (NSString*)weekday:(int)day
+{
+    NSString *label;
+    switch (day) {
+        case 2:
+            label = @"Mon";
+            break;
+        case 3:
+            label = @"Tue";
+            break;
+        case 4:
+            label = @"Wed";
+            break;
+        case 5:
+            label = @"Thu";
+            break;
+        case 6:
+            label = @"Fri";
+            break;
+        case 7:
+            label = @"Sat";
+            break;
+        case 1:
+            label = @"Sun";
+            break;
+            
+        default:
+            label = @"";
+            break;
+    }
+    return label;
 }
 
 @end

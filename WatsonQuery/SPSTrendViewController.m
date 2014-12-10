@@ -73,6 +73,7 @@
 
 -(CGFloat)valueForGraph:(SPSGraphType)type atXValue:(NSInteger)x
 {
+    x = [self numberOfPointsForType:type] - x - 1;
     switch (type) {
         case SPSGraphTypeActivity:
             return [[SPSTrendDataManager data] activityValueForIndex:x];

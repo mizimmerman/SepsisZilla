@@ -87,7 +87,7 @@
     return min;
 }
 
--(NSString *)changeOfValues:(NSArray *)values ofTypes:(Class)type forBaseRange:(NSIndexSet *)baseRange currentRange:(NSIndexSet *)curRange
+-(NSNumber *)changeOfValues:(NSArray *)values ofTypes:(Class)type forBaseRange:(NSIndexSet *)baseRange currentRange:(NSIndexSet *)curRange
 {
     float change;
     if (type == [NSNumber class]) {
@@ -112,9 +112,8 @@
     NSNumberFormatter *formatter = [NSNumberFormatter new];
     formatter.numberStyle = NSNumberFormatterDecimalStyle;
     formatter.maximumFractionDigits = 2;  //Set number of fractional digits
-    NSString *roundedNum = [formatter stringFromNumber:[NSNumber numberWithFloat:change]];
+    return [NSNumber numberWithFloat:change];
 
-    return roundedNum;
 }
 
 

@@ -15,7 +15,7 @@
 -(NSNumber *)standardDeviationOfValues:(NSArray *)values ofTypes:(Class)type;
 -(NSNumber *)findHighest:(NSArray *)values ofTypes:(Class)type numberOfDays:(NSInteger)days;
 -(NSNumber *)findLowest:(NSArray *)values ofTypes:(Class)type numberOfDays:(NSInteger)days;
--(NSString *)changeOfValues:(NSArray *)values ofTypes:(Class)type forBaseRange:(NSIndexSet *)baseRange currentRange:(NSIndexSet *)curRange;
+-(NSNumber *)changeOfValues:(NSArray *)values ofTypes:(Class)type forBaseRange:(NSIndexSet *)baseRange currentRange:(NSIndexSet *)curRange;
 -(NSNumber *)valueForPredicate:(NSPredicate *)predicate ofValues:(NSArray *)values ofType:(Class)type overRange:(NSIndexSet *)range;
 -(NSArray *)shouldSendHealthNotifications;
 
