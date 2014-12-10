@@ -39,7 +39,7 @@
 
 - (void) loadView {
     [super loadView];
-    [self.view setBackgroundColor:[UIColor lightGrayColor]];
+    [self.view setBackgroundColor:[UIColor colorWithRed:(30/255.0) green:(139/255.0) blue:(195/255.0) alpha:1]];
     
     self.questionField = [UITextView new];
     [self.questionField.layer setMasksToBounds:YES];
