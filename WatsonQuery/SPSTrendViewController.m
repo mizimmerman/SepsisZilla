@@ -12,12 +12,14 @@
 #import "SPSTrendViewCell.h"
 #import "SPSGraphDataSource.h"
 #import "UIColor+SPSColors.h"
-
+#import <HealthKit/HealthKit.h>
 
 @interface SPSTrendViewController () <UICollectionViewDataSource, UICollectionViewDelegate, SPSGraphDataSource>
 
 @property (nonatomic) UICollectionView *trendsCV;
 @property (nonatomic) SPSTrendLayout *layout;
+@property (nonatomic) HKHealthStore *healthStore;
+
 @end
 
 @implementation SPSTrendViewController
@@ -55,6 +57,53 @@
     [self.trendsCV setBackgroundView:backgroundImage];
     
 }
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.healthStore = [HKHealthStore new];
+    if ([HKHealthStore isHealthDataAvailable]) {
+//        NSSet *writeDataTypes = [self dataTypesToWrite];
+        NSSet *readDataTypes = [self dataTypesToRead];
+        
+        [self.healthStore requestAuthorizationToShareTypes:nil readTypes:readDataTypes completion:^(BOOL success, NSError *error) {
+            if (!success) {
+                NSLog(@"You didn't allow HealthKit to access these read/write data types. In your app, try to handle this error gracefully when a user decides not to provide access. The error was: %@. If you're using a simulator, try it on a device.", error);
+                
+                return;
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+//                // Update the user interface based on the current user's health information.
+//                [self updateUsersAgeLabel];
+//                [self updateUsersHeightLabel];
+//                [self updateUsersWeightLabel];
+            });
+        }];
+    }
+}
+
+
+// Returns the types of data that Fit wishes to write to HealthKit.
+//- (NSSet *)dataTypesToWrite {
+//}
+
+// Returns the types of data that Fit wishes to read from HealthKit.
+- (NSSet *)dataTypesToRead {
+    HKQuantityType *dietaryCalorieEnergyType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
+    HKQuantityType *activeEnergyBurnType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDistanceWalkingRunning];
+    HKQuantityType *heightType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeight];
+    HKQuantityType *weightType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyMass];
+    HKQuantityType *energy = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBasalEnergyBurned];
+    HKQuantityType *hr = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
+    HKQuantityType *temp = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyTemperature];
+    HKQuantityType *breath = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierRespiratoryRate];
+    HKCategoryType *sleep = [HKCategoryType categoryTypeForIdentifier:HKCategoryTypeIdentifierSleepAnalysis];
+    HKCharacteristicType *dob = [HKCharacteristicType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierDateOfBirth];
+    HKCharacteristicType *biologicalSexType = [HKObjectType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierBiologicalSex];
+
+    return [NSSet setWithObjects:dietaryCalorieEnergyType, activeEnergyBurnType, heightType, weightType, energy, hr, temp, breath, sleep, dob, biologicalSexType, nil];
+}
+
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {

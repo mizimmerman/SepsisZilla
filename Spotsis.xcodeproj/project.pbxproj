@@ -40,6 +40,7 @@
 		89A842181A1D913100821CDB /* SPSNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A842171A1D913100821CDB /* SPSNotification.m */; };
 		89A8421B1A1D914900821CDB /* SPSNotification+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A8421A1A1D914900821CDB /* SPSNotification+Helpers.m */; };
 		89A842211A1D92E600821CDB /* SPSNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A842201A1D92E600821CDB /* SPSNotificationManager.m */; };
+		89CCD8C61A388B9400EC3C09 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CCD8C51A388B9400EC3C09 /* HealthKit.framework */; };
 		89F5B9271A340E3F00051032 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F5B9261A340E3F00051032 /* Reachability.m */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +118,8 @@
 		89A8421F1A1D92E600821CDB /* SPSNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSNotificationManager.h; sourceTree = "<group>"; };
 		89A842201A1D92E600821CDB /* SPSNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSNotificationManager.m; sourceTree = "<group>"; };
 		89B2C5911A1BB09A0076D1C1 /* SPSGraphDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPSGraphDataSource.h; sourceTree = "<group>"; };
+		89CCD8C41A388B9400EC3C09 /* Spotsis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Spotsis.entitlements; sourceTree = "<group>"; };
+		89CCD8C51A388B9400EC3C09 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		89F5B9251A340E3F00051032 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		89F5B9261A340E3F00051032 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89CCD8C61A388B9400EC3C09 /* HealthKit.framework in Frameworks */,
 				89A842111A1D909600821CDB /* CoreData.framework in Frameworks */,
 				893A799819FC8CE40070D46E /* UPPlatform.framework in Frameworks */,
 			);
@@ -164,6 +168,8 @@
 		890B6A6719EEE380007E839F = {
 			isa = PBXGroup;
 			children = (
+				89CCD8C51A388B9400EC3C09 /* HealthKit.framework */,
+				89CCD8C41A388B9400EC3C09 /* Spotsis.entitlements */,
 				89A842101A1D909600821CDB /* CoreData.framework */,
 				893A799719FC8CE40070D46E /* UPPlatform.framework */,
 				890B6A7219EEE380007E839F /* WatsonQuery */,
@@ -366,6 +372,11 @@
 					890B6A6F19EEE380007E839F = {
 						CreatedOnToolsVersion = 6.0.1;
 						DevelopmentTeam = QAZG2BYMD2;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 					890B6A8819EEE380007E839F = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -559,6 +570,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Spotsis.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -582,6 +594,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Spotsis.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
