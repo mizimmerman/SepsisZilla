@@ -41,27 +41,39 @@
     [super loadView];
     [self.view setBackgroundColor:[UIColor colorWithRed:(30/255.0) green:(139/255.0) blue:(195/255.0) alpha:1]];
     
+    CGFloat qSize = 20;
+    CGFloat askSize = 15;
+    CGFloat responseSize = 18;
+    CGRect askFrame = CGRectMake(self.view.frame.size.width *3/4-5, 40, self.view.frame.size.width / 4, self.view.frame.size.height/8-20);
+    CGRect responseFrame = CGRectMake(10, 180, self.view.frame.size.width-20, self.view.frame.size.height-250);
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        qSize = 25;
+        askSize = 20;
+        responseSize = 24;
+    }
+    
     self.questionField = [UITextView new];
     [self.questionField.layer setMasksToBounds:YES];
     [self.questionField.layer setCornerRadius:10];
-    [self.questionField setFont:[UIFont systemFontOfSize:20]];
+    [self.questionField setFont:[UIFont systemFontOfSize:qSize]];
     [self.questionField setDelegate:self];
     [self.view addSubview:self.questionField];
     
     self.askButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.askButton setFrame:CGRectMake(self.view.frame.size.width *3/4-5, 40, self.view.frame.size.width / 4, self.view.frame.size.height/8-20)];
+    [self.askButton setFrame:askFrame];
     [self.askButton setTitle:@"Ask Watson!" forState:UIControlStateNormal];
-    [self.askButton.titleLabel setFont:[UIFont systemFontOfSize:15]];
+    [self.askButton.titleLabel setFont:[UIFont systemFontOfSize:askSize]];
     [self.askButton.titleLabel setAdjustsFontSizeToFitWidth:YES];
     [self.askButton addTarget:self action:@selector(tappedAsk) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.askButton];
 
     self.responseTextView = [UITextView new];
-    [self.responseTextView setFrame:CGRectMake(10, 120, self.view.frame.size.width-20, self.view.frame.size.height-190)];
+    [self.responseTextView setFrame:responseFrame];
     [self.responseTextView setTextColor:[UIColor blackColor]];
     [self.responseTextView setBackgroundColor:[UIColor whiteColor]];
     [self.responseTextView setTextAlignment:NSTextAlignmentCenter];
-    [self.responseTextView setFont:[UIFont systemFontOfSize:18]];
+    [self.responseTextView setFont:[UIFont systemFontOfSize:responseSize]];
     [self.responseTextView setText:@""];
     [self.responseTextView setEditable:NO];
     [self.responseTextView setDirectionalLockEnabled:YES];

@@ -8,11 +8,8 @@
 
 #import "SPSTrendDataManager.h"
 #import "SPSTrendDataManager+Algorithms.h"
-@import HealthKit;
 
 @interface SPSTrendDataManager()
-
-@property (nonatomic) HKHealthStore *healthStore;
 
 @end
 
@@ -36,7 +33,8 @@
         self.sleeps = @[@9.14, @5.56, @6.17, @6.5, @7, @6.5, @8.13, @7.53, @7.57, @6.16,  @7.4, @4.37, @2.26, @8.13, @6.4, @5.14, @8.06];
         self.activities = @[@3291, @4705, @7319, @1755, @9394, @6190, @10124, @8949, @8551, @1233, @2297, @2034, @2550, @2931, @8580, @6789, @3558, @12872, @5059, @6080, @7931, @11257];
         self.heartRates = @[@78, @75, @81, @85, @84, @79, @77, @78, @82, @91, @92, @85];
-        
+        self.healthStore = [HKHealthStore new];
+
     }
     return self;
 }
@@ -125,9 +123,7 @@
     NSString *recommendation = ([change floatValue]> 0.0f) ? @"Nice job, you're on an upward trend!" : @"Watch closely, you're on a downward trend!";
 
     return [NSString stringWithFormat:@"%@\n%@\n%@\n%@\n%@\n\n%@\n\n%@", dayAvgStr, weekAvgStr, monthAvgStr, highStr, lowStr, message, recommendation];
-
 }
-
 
 -(CGFloat)sleepValueForIndex:(NSInteger)index
 {
@@ -136,6 +132,10 @@
 
 -(CGFloat)activityValueForIndex:(NSInteger)index
 {
+    if ([self.steps objectAtIndex:index] != nil) {
+        return [[[self.steps objectAtIndex:index] objectForKey:@"count"] floatValue];
+    }
+    NSLog(@"empty healthkit data");
     return [[self.activities objectAtIndex:index] floatValue];
 }
 

@@ -37,7 +37,7 @@
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
     
     // Request to reload table view data
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadData" object:self];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadData" object:self];
     
     // Dismiss the view controller
 }

@@ -19,9 +19,10 @@
 		890B6A7C19EEE380007E839F /* SPSWatsonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 890B6A7B19EEE380007E839F /* SPSWatsonViewController.m */; };
 		890B6A8119EEE380007E839F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 890B6A8019EEE380007E839F /* Images.xcassets */; };
 		890B6A8419EEE380007E839F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 890B6A8219EEE380007E839F /* LaunchScreen.xib */; };
-		890B6A9019EEE380007E839F /* WatsonQueryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 890B6A8F19EEE380007E839F /* WatsonQueryTests.m */; };
 		8925888A19F9F9D200AEA7BE /* UIColor+SPSColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 8925888919F9F9D200AEA7BE /* UIColor+SPSColors.m */; };
 		893A799819FC8CE40070D46E /* UPPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893A799719FC8CE40070D46E /* UPPlatform.framework */; };
+		895802461A38CDB6008914AB /* SPSTrendDataManager+HealthKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 895802451A38CDB6008914AB /* SPSTrendDataManager+HealthKit.m */; };
+		895802481A38CF82008914AB /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895802471A38CF82008914AB /* HealthKit.framework */; };
 		89698E051A1A6A0A00CE8FFB /* BEMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 89698DF21A1A6A0A00CE8FFB /* BEMCircle.m */; };
 		89698E061A1A6A0A00CE8FFB /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 89698DF41A1A6A0A00CE8FFB /* BEMLine.m */; };
 		89698E071A1A6A0A00CE8FFB /* BEMSimpleLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89698DF61A1A6A0A00CE8FFB /* BEMSimpleLineGraphView.m */; };
@@ -40,19 +41,8 @@
 		89A842181A1D913100821CDB /* SPSNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A842171A1D913100821CDB /* SPSNotification.m */; };
 		89A8421B1A1D914900821CDB /* SPSNotification+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A8421A1A1D914900821CDB /* SPSNotification+Helpers.m */; };
 		89A842211A1D92E600821CDB /* SPSNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A842201A1D92E600821CDB /* SPSNotificationManager.m */; };
-		89CCD8C61A388B9400EC3C09 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CCD8C51A388B9400EC3C09 /* HealthKit.framework */; };
 		89F5B9271A340E3F00051032 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F5B9261A340E3F00051032 /* Reachability.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		890B6A8A19EEE380007E839F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 890B6A6819EEE380007E839F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 890B6A6F19EEE380007E839F;
-			remoteInfo = WatsonQuery;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		8906C02D19F5738F00291F64 /* WPWatson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPWatson.h; sourceTree = "<group>"; };
@@ -77,12 +67,14 @@
 		890B6A7B19EEE380007E839F /* SPSWatsonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPSWatsonViewController.m; sourceTree = "<group>"; };
 		890B6A8019EEE380007E839F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		890B6A8319EEE380007E839F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		890B6A8919EEE380007E839F /* SpotsisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotsisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		890B6A8E19EEE380007E839F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		890B6A8F19EEE380007E839F /* WatsonQueryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WatsonQueryTests.m; sourceTree = "<group>"; };
 		8925888819F9F9D200AEA7BE /* UIColor+SPSColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SPSColors.h"; sourceTree = "<group>"; };
 		8925888919F9F9D200AEA7BE /* UIColor+SPSColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SPSColors.m"; sourceTree = "<group>"; };
 		893A799719FC8CE40070D46E /* UPPlatform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UPPlatform.framework; path = UPPlatformSDK/UPPlatform.framework; sourceTree = "<group>"; };
+		895802441A38CDB6008914AB /* SPSTrendDataManager+HealthKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SPSTrendDataManager+HealthKit.h"; sourceTree = "<group>"; };
+		895802451A38CDB6008914AB /* SPSTrendDataManager+HealthKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SPSTrendDataManager+HealthKit.m"; sourceTree = "<group>"; };
+		895802471A38CF82008914AB /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		89698DF11A1A6A0A00CE8FFB /* BEMCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCircle.h; sourceTree = "<group>"; };
 		89698DF21A1A6A0A00CE8FFB /* BEMCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCircle.m; sourceTree = "<group>"; };
 		89698DF31A1A6A0A00CE8FFB /* BEMLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMLine.h; sourceTree = "<group>"; };
@@ -119,7 +111,6 @@
 		89A842201A1D92E600821CDB /* SPSNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSNotificationManager.m; sourceTree = "<group>"; };
 		89B2C5911A1BB09A0076D1C1 /* SPSGraphDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPSGraphDataSource.h; sourceTree = "<group>"; };
 		89CCD8C41A388B9400EC3C09 /* Spotsis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Spotsis.entitlements; sourceTree = "<group>"; };
-		89CCD8C51A388B9400EC3C09 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		89F5B9251A340E3F00051032 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		89F5B9261A340E3F00051032 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,16 +120,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89CCD8C61A388B9400EC3C09 /* HealthKit.framework in Frameworks */,
+				895802481A38CF82008914AB /* HealthKit.framework in Frameworks */,
 				89A842111A1D909600821CDB /* CoreData.framework in Frameworks */,
 				893A799819FC8CE40070D46E /* UPPlatform.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		890B6A8619EEE380007E839F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,7 +152,7 @@
 		890B6A6719EEE380007E839F = {
 			isa = PBXGroup;
 			children = (
-				89CCD8C51A388B9400EC3C09 /* HealthKit.framework */,
+				895802471A38CF82008914AB /* HealthKit.framework */,
 				89CCD8C41A388B9400EC3C09 /* Spotsis.entitlements */,
 				89A842101A1D909600821CDB /* CoreData.framework */,
 				893A799719FC8CE40070D46E /* UPPlatform.framework */,
@@ -182,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				890B6A7019EEE380007E839F /* Spotsis.app */,
-				890B6A8919EEE380007E839F /* SpotsisTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -287,6 +270,8 @@
 				89698DFE1A1A6A0A00CE8FFB /* SPSTrendDataManager.m */,
 				897001061A1BC73C00F6DD2A /* SPSTrendDataManager+Algorithms.h */,
 				897001071A1BC73C00F6DD2A /* SPSTrendDataManager+Algorithms.m */,
+				895802441A38CDB6008914AB /* SPSTrendDataManager+HealthKit.h */,
+				895802451A38CDB6008914AB /* SPSTrendDataManager+HealthKit.m */,
 				89A8421F1A1D92E600821CDB /* SPSNotificationManager.h */,
 				89A842201A1D92E600821CDB /* SPSNotificationManager.m */,
 				89A8420D1A1D904000821CDB /* SPSCoreDataHelper.h */,
@@ -342,24 +327,6 @@
 			productReference = 890B6A7019EEE380007E839F /* Spotsis.app */;
 			productType = "com.apple.product-type.application";
 		};
-		890B6A8819EEE380007E839F /* SpotsisTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 890B6A9619EEE380007E839F /* Build configuration list for PBXNativeTarget "SpotsisTests" */;
-			buildPhases = (
-				890B6A8519EEE380007E839F /* Sources */,
-				890B6A8619EEE380007E839F /* Frameworks */,
-				890B6A8719EEE380007E839F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				890B6A8B19EEE380007E839F /* PBXTargetDependency */,
-			);
-			name = SpotsisTests;
-			productName = WatsonQueryTests;
-			productReference = 890B6A8919EEE380007E839F /* SpotsisTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -378,10 +345,6 @@
 							};
 						};
 					};
-					890B6A8819EEE380007E839F = {
-						CreatedOnToolsVersion = 6.0.1;
-						TestTargetID = 890B6A6F19EEE380007E839F;
-					};
 				};
 			};
 			buildConfigurationList = 890B6A6B19EEE380007E839F /* Build configuration list for PBXProject "Spotsis" */;
@@ -398,7 +361,6 @@
 			projectRoot = "";
 			targets = (
 				890B6A6F19EEE380007E839F /* Spotsis */,
-				890B6A8819EEE380007E839F /* SpotsisTests */,
 			);
 		};
 /* End PBXProject section */
@@ -411,13 +373,6 @@
 				8906C03719F573A700291F64 /* config.plist in Resources */,
 				890B6A8419EEE380007E839F /* LaunchScreen.xib in Resources */,
 				890B6A8119EEE380007E839F /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		890B6A8719EEE380007E839F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +398,7 @@
 				897001081A1BC73C00F6DD2A /* SPSTrendDataManager+Algorithms.m in Sources */,
 				8906C03519F573A100291F64 /* WPConstants.m in Sources */,
 				8906C03219F5739B00291F64 /* WPUtils.m in Sources */,
+				895802461A38CDB6008914AB /* SPSTrendDataManager+HealthKit.m in Sources */,
 				89698E091A1A6A0A00CE8FFB /* SPSNotificationTableViewCell.m in Sources */,
 				8925888A19F9F9D200AEA7BE /* UIColor+SPSColors.m in Sources */,
 				89A8421B1A1D914900821CDB /* SPSNotification+Helpers.m in Sources */,
@@ -459,23 +415,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		890B6A8519EEE380007E839F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				890B6A9019EEE380007E839F /* WatsonQueryTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		890B6A8B19EEE380007E839F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 890B6A6F19EEE380007E839F /* Spotsis */;
-			targetProxy = 890B6A8A19EEE380007E839F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		890B6A8219EEE380007E839F /* LaunchScreen.xib */ = {
@@ -585,7 +525,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "WatsonQuery/WatsonQuery-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -608,43 +548,7 @@
 				PRODUCT_NAME = Spotsis;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "WatsonQuery/WatsonQuery-Bridging-Header.h";
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		890B6A9719EEE380007E839F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = WatsonQueryTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = SpotsisTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WatsonQuery.app/WatsonQuery";
-			};
-			name = Debug;
-		};
-		890B6A9819EEE380007E839F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = WatsonQueryTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = SpotsisTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WatsonQuery.app/WatsonQuery";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -665,15 +569,6 @@
 			buildConfigurations = (
 				890B6A9419EEE380007E839F /* Debug */,
 				890B6A9519EEE380007E839F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		890B6A9619EEE380007E839F /* Build configuration list for PBXNativeTarget "SpotsisTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				890B6A9719EEE380007E839F /* Debug */,
-				890B6A9819EEE380007E839F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

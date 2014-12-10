@@ -47,10 +47,12 @@
     
     
     /* If we need to add an info button, uncomment this */
-    /*UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Info"
-                                                                 style:UIBarButtonItemStylePlain target:nil action:nil];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Remind"
+                                                                    style:UIBarButtonItemStylePlain
+                                                                   target:self
+                                                                   action:@selector(tappedInfo:)];
     [rightButton setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]} forState:UIControlStateNormal];
-    self.navigationItem.rightBarButtonItem = rightButton;*/
+    self.navigationItem.rightBarButtonItem = rightButton;
 }
 
 - (void)viewDidLoad
@@ -102,4 +104,37 @@
     return 120;
 }
 
+-(void)tappedInfo:(id)sender
+{
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Set your reminders!" message:@"Enter a time first for the reminder in format HH:MM followed by a reminder message" delegate:self cancelButtonTitle:@"Enter" otherButtonTitles:nil];
+    alert.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
+    [alert textFieldAtIndex:1].secureTextEntry = NO; //Will disable secure text entry for second textfield.
+    [alert textFieldAtIndex:0].placeholder = @"Time in HH:MM"; //Will replace "Username"
+    [alert textFieldAtIndex:1].placeholder = @"Reminder message"; //Will replace "Password"
+    [alert show];
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    UITextField *title1 = [alertView textFieldAtIndex:0];
+    
+    title1= [alertView textFieldAtIndex:0];
+    NSString *title = title1.text;
+    NSLog(@"The name is %@",title);
+    NSLog(@"Using the Textfield: %@",[[alertView textFieldAtIndex:0] text]);
+    NSString *message = [alertView textFieldAtIndex:1].text;
+    NSString *time = [alertView textFieldAtIndex:0].text;
+    if ([message  isEqual: @""] || [time  isEqual: @""]) {
+        return;
+    }
+    NSString *notif = [NSString stringWithFormat:@"%@ at %@", message, time];
+    [SPSNotification insertMockNotificationWithText:notif];
+    NSError *error;
+    [[SPSNotificationManager data].fetchedResultsController performFetch:&error ];
+
+    [self.notificationsFeed reloadData];
+//    [self.notificationsFeed beginUpdates];
+//    [self.notificationsFeed endUpdates];
+    
+}
 @end

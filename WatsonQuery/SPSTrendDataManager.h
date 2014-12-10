@@ -9,10 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CGBase.h>
 #import "SPSGraphDataSource.h"
+@import HealthKit;
 
 @interface SPSTrendDataManager : NSObject
 
 +(SPSTrendDataManager *)data;
+@property (nonatomic) HKHealthStore *healthStore;
+@property (nonatomic) NSMutableArray *steps;
+
 @property (nonatomic) NSArray *sleeps;
 @property (nonatomic) NSArray *activities;
 @property (nonatomic) NSArray *heartRates;
